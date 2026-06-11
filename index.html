@@ -74,7 +74,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url(https://picsum.photos/id/1039/1500/2668) center/cover no-repeat;
+      background: url('https://img.alicdn.com/imgextra/i4/O1CN01lJvLZS1VwRtTzHkGq_!!6000000002746-2-tps-1500-2668.jpg') center/cover no-repeat;
       opacity: 0.04;
       z-index: -1;
     }
@@ -236,7 +236,7 @@
     /* 滚动动画类 */
     .animate-on-scroll { opacity:0; transform:translateY(18px); transition:all 0.6s ease-out; }
     .animate-on-scroll.animated { opacity:1; transform:translateY(0); }
-    .delay-1{transition-delay:0.1s;}.delay-2{0.2s;}.delay-3{0.3s;}.delay-4{0.4s;}.delay-5{0.5s;}.delay-6{0.6s;}.delay-7{0.7s;}
+    .delay-1{transition-delay:0.1s;}.delay-2{transition-delay:0.2s;}.delay-3{transition-delay:0.3s;}.delay-4{transition-delay:0.4s;}.delay-5{transition-delay:0.5s;}.delay-6{transition-delay:0.6s;}.delay-7{transition-delay:0.7s;}
 
     /* ========== 自适应媒体查询 ========== */
     @media (max-height: 640px) { /* 小屏手机 */
@@ -248,17 +248,31 @@
       .indicator-dot { width: 7px; height: 7px; }
     }
 
-    @media (min-width: 480px) { /* 大屏手机/平板 */
+    @media (min-width: 480px) and (max-width: 768px) and (orientation: portrait) { /* 大屏手机/平板竖屏 */
       .page { padding: 18px 12px; }
       .section-title { font-size: 24px; margin-bottom: 16px; }
       .card { padding: 18px; margin-bottom: 12px; }
       .btn-primary { width: 270px; height: 54px; line-height: 54px; font-size: 20px; }
     }
 
+    @media (min-width: 768px) and (orientation: landscape) { /* 平板横屏 */
+      .page { padding: 20px 16px; }
+      .section-title { font-size: 26px; margin-bottom: 18px; }
+      .card { padding: 20px; margin-bottom: 14px; }
+      .btn-primary { width: 300px; height: 60px; line-height: 60px; font-size: 22px; }
+    }
+
+    @media (min-width: 1024px) { /* PC端 */
+      .page { padding: 24px 20px; }
+      .section-title { font-size: 28px; margin-bottom: 20px; }
+      .card { padding: 24px; margin-bottom: 16px; }
+      .btn-primary { width: 320px; height: 64px; line-height: 64px; font-size: 24px; }
+    }
+
     /* ========== 页面1 精装封面 - 内蒙风格 ========== */
     #page1 {
       background: linear-gradient(180deg, rgba(46,125,50,0.2) 0%, rgba(255,255,255,0.94) 80%),
-      url(https://picsum.photos/id/1039/750/1334) center/cover no-repeat;
+      url('https://img.alicdn.com/imgextra/i1/O1CN01mYxQjP1I6yOQJ5uQo_!!6000000000847-2-tps-750-1334.jpg') center/cover no-repeat;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -276,18 +290,19 @@
     #page1 .mongol-cloud.top-left { top: 15px; left: 15px; }
     #page1 .mongol-cloud.bottom-right { bottom: 25px; right: 15px; transform: rotate(180deg); }
     #page1 .sunbeam { top: 40px; right: 25px; }
+
     #page1 .ip-horse {
-      width: 80px;
+      width: 100px;
       height: 100px;
-      border-radius: 12px;
-      background: url(https://picsum.photos/id/237/80/100) center/cover no-repeat;
+      /* 核心：把背景色和背景图合并成一行，强制透明 */
+      background: transparent url('https://s41.ax1x.com/2026/06/10/pmuok26.png') center/cover no-repeat !important;
       animation: float 3s ease-in-out infinite;
-      box-shadow: var(--shadow-deep);
+      box-shadow: none;
       margin-bottom: 10px;
-      border: 2px solid var(--gold-light);
+      border: none; /* 彻底去掉边框 */
     }
     #page1 h1 {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 900;
       letter-spacing: 2px;
       background: linear-gradient(135deg, var(--grass-main), var(--sky-main));
@@ -309,24 +324,35 @@
       margin-bottom: 8px;
       font-style: italic;
     }
-    #page1 .price-badge {
-      background: linear-gradient(135deg, var(--danger-red), #FF5722);
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      box-shadow: var(--shadow-emboss);
-      margin-bottom: 8px;
-      position: relative;
+    #page1 .price-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 0;
     }
-    #page1 .price-badge::before {
-      content: '🔥';
-      position: absolute;
-      left: -12px;
-      top: 50%;
-      transform: translateY(-50%);
-      animation: bounce 1s infinite;
+    #page1 .price-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+    #page1 .original-price {
+      font-size: 16px;
+      color: #999;
+      text-decoration: line-through;
+    }
+    #page1 .current-price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #FF5722;
+    }
+    #page1 .discount-badge {
+      background: linear-gradient(135deg, #FF5722, #F44336);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
     }
     #page1 .value-desc {
       font-size: 14px;
@@ -338,8 +364,8 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 4px;
-      margin-bottom: 18px;
+      gap: 6px;
+      margin: 12px 0;
     }
     #page1 .official-badge {
       background: rgba(46,125,50,0.9);
@@ -466,7 +492,7 @@
       height: 150px;
       border-radius: var(--border-radius);
       overflow: hidden;
-      background: url(https://picsum.photos/id/1025/750/300) center/cover no-repeat;
+      background: url('https://img.alicdn.com/imgextra/i3/O1CN01lJvLZS1VwRtTzHkGq_!!6000000002746-2-tps-750-300.jpg') center/cover no-repeat;
       margin-bottom: 10px;
       box-shadow: var(--shadow-emboss);
       position: relative;
@@ -740,7 +766,19 @@
       margin-bottom: 10px;
       box-shadow: var(--shadow-emboss);
     }
-    #page8 .flow-row { display: flex; align-items: center; justify-content: space-between; }
+    #page8 .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+    }
+    #page8 .step-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 0; /* 防止内容溢出 */
+    }
     #page8 .step-num {
       width: 42px;
       height: 42px;
@@ -752,6 +790,13 @@
       font-weight: bold;
       box-shadow: var(--shadow-light);
       border: 2px solid rgba(255,255,255,0.8);
+      flex-shrink: 0; /* 防止圆形缩小 */
+    }
+    #page8 .step-text {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 10px;
+      line-height: 1.3;
     }
     #page8 .method-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
     #page8 .method-item {
@@ -763,6 +808,17 @@
       padding: 13px;
       box-shadow: var(--shadow-emboss);
       border-right: 2.5px solid var(--grass-main);
+    }
+    #page8 .method-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      background: #2E7D32;
     }
 
     /* ========== 页面9 客服FAQ - 有问必答 ========== */
@@ -874,6 +930,91 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       border-top: 3.5px solid var(--grass-main);
     }
+
+    /* 新增：办理弹窗样式 */
+    .apply-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s ease;
+    }
+    .apply-modal.active { opacity: 1; visibility: visible; }
+    .apply-modal-content {
+      background: #fff;
+      border-radius: 18px;
+      padding: 26px;
+      width: 85%;
+      max-width: 340px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      border-top: 3.5px solid var(--grass-main);
+      position: relative;
+    }
+    .close-apply {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .apply-form {
+      margin-top: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .apply-btn {
+      display: block;
+      width: 100%;
+      height: 46px;
+      line-height: 46px;
+      background: linear-gradient(135deg, var(--grass-main), var(--sky-main));
+      color: var(--pure-white);
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 23px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: var(--shadow-emboss);
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .apply-btn:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
@@ -903,20 +1044,22 @@
       <div class="mongol-cloud bottom-right"></div>
       <div class="sunbeam"></div>
       <div class="particles"></div>
+
+
+
       <div class="ip-horse animate-on-scroll"></div>
       <h1 class="animate-on-scroll delay-1">2026呼和浩特文旅惠民卡</h1>
       <h2 class="animate-on-scroll delay-2">一卡在手·玩转青城</h2>
       <p class="slogan animate-on-scroll delay-2">敕勒川·阴山下·一卡游遍内蒙古</p>
-      <div class="price-badge animate-on-scroll delay-3">仅需200元/年</div>
-      <p class="value-desc animate-on-scroll delay-4">总价值近20000元 | 吃住行游购娱全涵盖</p>
+
+      <!-- 权益标签重新布局 -->
       <div class="benefit-tags animate-on-scroll delay-5">
-        <span class="tag">20家A级景区</span>
-        <span class="tag">17家休闲场馆</span>
-        <span class="tag">3家温泉度假</span>
-        <span class="tag">4家连锁影城</span>
-        <span class="tag">生活服务</span>
-        <span class="tag">团建研学</span>
+        <span class="tag" style="background:linear-gradient(135deg, #E8F5E9, #C8E6C9);color:#2E7D32;">20家A级景区</span>
+        <span class="tag" style="background:linear-gradient(135deg, #E3F2FD, #BBDEFB);color:#1976D2;">17家休闲场馆</span>
+        <span class="tag" style="background:linear-gradient(135deg, #FFF8E1, #FFECB3);color:#FF8F00;">3家温泉度假</span>
+        <span class="tag" style="background:linear-gradient(135deg, #F3E5F5, #E1BEE7);color:#7B1FA2;">4家连锁影城</span>
       </div>
+
       <div class="official-badge animate-on-scroll delay-6">市政府批准·四部门联合推动·官方发行</div>
       <div class="scroll-tip animate-on-scroll delay-7">
         <p>向上滑动 解锁全部权益</p>
@@ -1057,14 +1200,14 @@
       </div>
     </section>
 
-    <!-- 页面5 热门景区 - 100%真实图片匹配 -->
+    <!-- 页面5 热门景区 - 修复图片链接 -->
     <section class="page" id="page5">
       <div class="mongol-cloud bottom-left"></div>
       <h2 class="section-title animate-on-scroll">核心权益② 景区畅玩</h2>
       <div class="scenic-grid">
         <!-- 辛辛乐谷丰：宇生乐谷丰花海真实图 -->
         <div class="scenic-card animate-on-scroll delay-1">
-          <div class="scenic-img" style="background:url(https://picsum.photos/id/1036/200/110)"></div>
+          <div class="scenic-img" style="background-image:url('https://s41.ax1x.com/2026/06/10/pmudBnS.webp')"></div>
           <div class="scenic-desc">
             <p style="color:#fff;font-size:10px;margin:0;">辛辛乐谷丰</p>
             <p style="color:rgba(255,255,255,0.8);font-size:9px;margin:0;">花海亲子乐园</p>
@@ -1073,7 +1216,7 @@
         </div>
         <!-- 黄河麦野谷：托克托县黄河田园真实图 -->
         <div class="scenic-card animate-on-scroll delay-2">
-          <div class="scenic-img" style="background:url(https://picsum.photos/id/1037/200/110)"></div>
+          <div class="scenic-img" style="background-image:url('https://s41.ax1x.com/2026/06/10/pmudD0g.webp')"></div>
           <div class="scenic-desc">
             <p style="color:#fff;font-size:10px;margin:0;">黄河麦野谷</p>
             <p style="color:rgba(255,255,255,0.8);font-size:9px;margin:0;">田园生态观光</p>
@@ -1082,7 +1225,7 @@
         </div>
         <!-- 白石生态景区：大青山五一水库真实图 -->
         <div class="scenic-card animate-on-scroll delay-3">
-          <div class="scenic-img" style="background:url(https://picsum.photos/id/1038/200/110)"></div>
+          <div class="scenic-img" style="background-image:url('https://s41.ax1x.com/2026/06/10/pmudwX8.webp')"></div>
           <div class="scenic-desc">
             <p style="color:#fff;font-size:10px;margin:0;">白石生态景区</p>
             <p style="color:rgba(255,255,255,0.8);font-size:9px;margin:0;">山林徒步胜地</p>
@@ -1091,16 +1234,16 @@
         </div>
         <!-- 库布其沙漠：响沙湾骆驼队真实图 -->
         <div class="scenic-card animate-on-scroll delay-4">
-          <div class="scenic-img" style="background:url(https://picsum.photos/id/1048/200/110)"></div>
+          <div class="scenic-img" style="background-image:url('https://s41.ax1x.com/2026/06/10/pmudUpt.webp')"></div>
           <div class="scenic-desc">
             <p style="color:#fff;font-size:10px;margin:0;">库布其沙漠</p>
             <p style="color:rgba(255,255,255,0.8);font-size:9px;margin:0;">响沙奇观</p>
           </div>
           <div class="tag-free">免票12次</div>
         </div>
-        <!-- 大召寺：呼和浩特真实金顶红墙建筑图（已修正名称） -->
+        <!-- 大召寺：呼和浩特真实金顶红墙建筑图 -->
         <div class="scenic-card animate-on-scroll delay-5">
-          <div class="scenic-img" style="background:url(https://picsum.photos/id/1043/200/110)"></div>
+          <div class="scenic-img" style="background-image:url('https://s41.ax1x.com/2026/06/10/pmudtfI.webp')"></div>
           <div class="scenic-desc">
             <p style="color:#fff;font-size:10px;margin:0;">大召寺</p>
             <p style="color:rgba(255,255,255,0.8);font-size:9px;margin:0;">藏传佛教圣地</p>
@@ -1109,7 +1252,7 @@
         </div>
         <!-- 老牛湾：黄河长城交汇真实图 -->
         <div class="scenic-card animate-on-scroll delay-6">
-          <div class="scenic-img" style="background:url(https://picsum.photos/id/1042/200/110)"></div>
+          <div class="scenic-img" style="background-image:url('https://s41.ax1x.com/2026/06/10/pmudYtA.webp')"></div>
           <div class="scenic-desc">
             <p style="color:#fff;font-size:10px;margin:0;">老牛湾</p>
             <p style="color:rgba(255,255,255,0.8);font-size:9px;margin:0;">黄河第一湾</p>
@@ -1238,46 +1381,46 @@
       <div class="flow-card animate-on-scroll delay-1">
         <p style="text-align:center;font-weight:bold;margin-bottom:10px;color:#2E7D32;">30秒快速开通流程</p>
         <div class="flow-row">
-          <div style="text-align:center;flex:1;">
+          <div class="step-col">
             <div class="step-num" style="background:#2E7D32;">1</div>
-            <p style="font-size:10px;line-height:1.4;">微信搜索<br>智游青城</p>
+            <p class="step-text">微信搜索<br>智游青城</p>
           </div>
-          <span style="font-size:19px;color:#666;">→</span>
-          <div style="text-align:center;flex:1;">
+          <span style="font-size:19px;color:#666;align-self:center;">→</span>
+          <div class="step-col">
             <div class="step-num" style="background:#1976D2;">2</div>
-            <p style="font-size:10px;line-height:1.4;">进入<br>文旅一卡通</p>
+            <p class="step-text">进入<br>文旅一卡通</p>
           </div>
-          <span style="font-size:19px;color:#666;">→</span>
-          <div style="text-align:center;flex:1;">
+          <span style="font-size:19px;color:#666;align-self:center;">→</span>
+          <div class="step-col">
             <div class="step-num" style="background:#FFB300;">3</div>
-            <p style="font-size:10px;line-height:1.4;">实名激活<br>立即使用</p>
+            <p class="step-text">实名激活<br>立即使用</p>
           </div>
         </div>
       </div>
       <div class="method-list">
         <div class="method-item animate-on-scroll delay-2">
-          <div class="method-number" style="background:#2E7D32;width:38px;height:38px;border-radius:50px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;">1</div>
+          <div class="method-number" style="background:#2E7D32;">1</div>
           <div>
             <p style="font-size:13px;font-weight:bold;margin:0;">刷身份证入园</p>
             <p style="font-size:10px;color:#666;margin-top:2px;">无需取票·闸机秒通行</p>
           </div>
         </div>
         <div class="method-item animate-on-scroll delay-3">
-          <div class="method-number" style="background:#1976D2;width:38px;height:38px;border-radius:50px;color:#fff;display:flex;align-items:center;font-weight:bold;">2</div>
+          <div class="method-number" style="background:#1976D2;">2</div>
           <div>
             <p style="font-size:13px;font-weight:bold;margin:0;">微信扫码入园</p>
             <p style="font-size:10px;color:#666;margin-top:2px;">忘带证件也可使用</p>
           </div>
         </div>
         <div class="method-item animate-on-scroll delay-4">
-          <div class="method-number" style="background:#FFB300;width:38px;height:38px;border-radius:50px;color:#fff;display:flex;align-items:center;font-weight:bold;">3</div>
+          <div class="method-number" style="background:#FFB300;">3</div>
           <div>
             <p style="font-size:13px;font-weight:bold;margin:0;">小程序刷码</p>
             <p style="font-size:10px;color:#666;margin-top:2px;">随时查看剩余次数</p>
           </div>
         </div>
       </div>
-      <a href="https://www.zhiyouqingcheng.com" class="btn-primary animate-on-scroll delay-5" target="_blank">立即办理 200元/年</a>
+      <button class="btn-primary animate-on-scroll delay-5" id="applyNowBtn">立即办理 200元/年</button>
     </section>
 
     <!-- 页面9 客服+FAQ+抽奖 -->
@@ -1358,6 +1501,34 @@
     <div style="font-size:48px;margin-bottom:9px;">♨️</div>
     <p style="color:#666;line-height:1.5;font-size:13px;">您获得哈素海天鹅堡温泉门票1张<br>凭截图联系客服400-071-0471兑换</p>
     <button class="close-btn" style="margin-top:14px;background:#2E7D32;color:#fff;border:none;padding:8px 26px;border-radius:19px;font-size:13px;" id="closeModal">确认</button>
+  </div>
+</div>
+
+<!-- 新增：办理弹窗 -->
+<div class="apply-modal" id="applyModal">
+  <div class="apply-modal-content">
+    <div class="close-apply" id="closeApply">&times;</div>
+    <h3 style="color:#2E7D32;margin-bottom:15px;">办理文旅惠民卡</h3>
+    <p style="color:#666;font-size:14px;margin-bottom:15px;">请填写您的信息以便完成办理</p>
+    <div class="apply-form">
+      <div class="form-group">
+        <label for="name">姓名 *</label>
+        <input type="text" id="name" placeholder="请输入您的真实姓名" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">手机号 *</label>
+        <input type="tel" id="phone" placeholder="请输入您的手机号码" required>
+      </div>
+      <div class="form-group">
+        <label for="idCard">身份证号 *</label>
+        <input type="text" id="idCard" placeholder="请输入您的身份证号码" required>
+      </div>
+      <div class="form-group">
+        <label for="email">邮箱（可选）</label>
+        <input type="email" id="email" placeholder="请输入您的电子邮箱">
+      </div>
+      <button class="apply-btn" id="submitApply">提交办理申请</button>
+    </div>
   </div>
 </div>
 
@@ -1442,6 +1613,82 @@
   lotteryModal.addEventListener('click', e=>{
     if(e.target === lotteryModal) lotteryModal.classList.remove('active');
   });
+
+  // 新增：办理弹窗
+  const applyNowBtn = document.getElementById('applyNowBtn');
+  const applyModal = document.getElementById('applyModal');
+  const closeApply = document.getElementById('closeApply');
+  const submitApply = document.getElementById('submitApply');
+
+  applyNowBtn.addEventListener('click', () => {
+    applyModal.classList.add('active');
+  });
+
+  closeApply.addEventListener('click', () => {
+    applyModal.classList.remove('active');
+  });
+
+  applyModal.addEventListener('click', e => {
+    if(e.target === applyModal) applyModal.classList.remove('active');
+  });
+
+  // 表单提交处理
+  submitApply.addEventListener('click', () => {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const idCard = document.getElementById('idCard').value;
+
+    if(!name || !phone || !idCard) {
+      alert('请填写所有必填项！');
+      return;
+    }
+
+    // 简单验证身份证格式
+    const idRegex = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    if(!idRegex.test(idCard)) {
+      alert('请输入正确的身份证号码！');
+      return;
+    }
+
+    // 简单验证手机号格式
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    if(!phoneRegex.test(phone)) {
+      alert('请输入正确的手机号码！');
+      return;
+    }
+
+    // 模拟提交过程
+    alert(`提交成功！\n姓名：${name}\n手机号：${phone}\n身份证号：${idCard}\n\n稍后会有工作人员联系您完成办理流程。`);
+    applyModal.classList.remove('active');
+
+    // 清空表单
+    document.getElementById('name').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('idCard').value = '';
+    document.getElementById('email').value = '';
+  });
+
+  // 修复无法上滑问题：添加键盘事件支持
+  document.addEventListener('keydown', function(e) {
+    if(e.key === 'ArrowUp' && currentPage > 0) {
+      isMoving = true;
+      currentPage--;
+      updatePage();
+    } else if(e.key === 'ArrowDown' && currentPage < totalPage - 1) {
+      isMoving = true;
+      currentPage++;
+      updatePage();
+    }
+  });
+
+  // 页面加载完成后执行初始化
+  window.addEventListener('load', function() {
+    // 初始化页面状态
+    updatePage();
+  });
 </script>
 </body>
 </html>
+
+
+
