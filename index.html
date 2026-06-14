@@ -1015,6 +1015,81 @@
     .apply-btn:hover {
       opacity: 0.9;
     }
+
+    /* 音乐播放器样式 */
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--grass-main);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+      z-index: 1002;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .music-player.expanded {
+      width: 300px;
+      height: 180px;
+      border-radius: 16px;
+      padding: 15px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-player.minimized {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-icon {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pause-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .music-player.playing .pause-overlay {
+      opacity: 1;
+    }
+
+    /* 音乐播放器图标样式 */
+    .music-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
   </style>
 </head>
 <body>
@@ -1532,6 +1607,16 @@
   </div>
 </div>
 
+<!-- 音乐播放器 -->
+<div class="music-player minimized" id="musicPlayer">
+  <div class="music-icon">
+    <img id="musicIconImg" src="https://s41.ax1x.com/2026/06/10/pmuok26.png" alt="Music Icon">
+  </div>
+  <div class="pause-overlay"></div>
+</div>
+
+<audio id="audioPlayer"></audio>
+
 <script>
   // ========== 核心：单页滑动逻辑（一次只滑一页） ==========
   const pageContainer = document.getElementById('pageContainer');
@@ -1686,9 +1771,47 @@
     // 初始化页面状态
     updatePage();
   });
+
+  // 音乐播放器功能
+  const audioPlayer = document.getElementById('audioPlayer');
+  const musicPlayer = document.getElementById('musicPlayer');
+  const musicIconImg = document.getElementById('musicIconImg');
+  const pauseOverlay = document.querySelector('.pause-overlay');
+
+  // 设置音频源 - 使用草原风格的音乐
+  audioPlayer.src = 'https://music.163.com/song/media/outer/url?id=28832226.mp3';
+
+  // 页面加载完成后自动播放音乐
+  window.addEventListener('load', function() {
+    // 尝试播放音乐，如果失败则显示播放按钮
+    audioPlayer.play().then(() => {
+      musicPlayer.classList.add('playing');
+      musicIconImg.src = 'https://s41.ax1x.com/2026/06/14/pmQLj2Q.png'; // 播放状态图标
+    }).catch(error => {
+      // 如果自动播放失败，保持暂停状态并显示播放图标
+      musicPlayer.classList.remove('playing');
+      musicIconImg.src = 'https://s41.ax1x.com/2026/06/10/pmuok26.png'; // 暂停状态图标
+    });
+  });
+
+  // 播放/暂停按钮事件
+  musicPlayer.addEventListener('click', () => {
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      musicPlayer.classList.add('playing');
+      musicIconImg.src = 'https://s41.ax1x.com/2026/06/14/pmQLj2Q.png'; // 播放状态图标
+    } else {
+      audioPlayer.pause();
+      musicPlayer.classList.remove('playing');
+      musicIconImg.src = 'https://s41.ax1x.com/2026/06/10/pmuok26.png'; // 暂停状态图标
+    }
+  });
+
+  // 当音乐播放结束时，重置为初始状态
+  audioPlayer.addEventListener('ended', () => {
+    musicPlayer.classList.remove('playing');
+    musicIconImg.src = 'https://s41.ax1x.com/2026/06/14/pmQLj2Q.png'; // 暂停状态图标
+  });
 </script>
 </body>
 </html>
-
-
-
