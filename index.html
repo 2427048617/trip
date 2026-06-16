@@ -1,289 +1,302 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <title>200元玩转呼包鄂乌 | 呼和浩特文旅惠民卡</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
-    html,body{width:100%;height:100%;overflow:hidden;background:#FAFAF8;position:fixed}
-    :root{--g:#1B7A4A;--g2:#0D5C36;--g3:#E8F5EE;--a:#F5A623;--a2:#FFF8E7;--w:#FFFFFF;--b:#FAFAF8;--t1:#1A1A2E;--t2:#5A6573;--t3:#9CA3AF;--r:18px;--rs:12px;--sh:0 1px 4px rgba(0,0,0,.04),0 3px 10px rgba(0,0,0,.03)}
-    .wrap{width:100%;height:100vh;overflow:hidden;position:relative;touch-action:none;-webkit-overflow-scrolling:auto}
-    .pages{width:100%;height:100vh;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
-    .pg{width:100%;height:100vh;float:left;display:flex;flex-direction:column;position:relative;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
-    .pg::-webkit-scrollbar{display:none}
-    .pb{position:fixed;top:0;left:0;right:0;height:2px;z-index:100;background:rgba(0,0,0,.04)}
-    .pb-in{height:100%;background:linear-gradient(90deg,var(--g),#2ECC71);transition:width .55s}
-    .snav{position:fixed;right:8px;top:50%;transform:translateY(-50%);z-index:99;display:flex;flex-direction:column;gap:6px}
-    .sn-dot{width:4px;height:4px;border-radius:50%;background:rgba(27,122,74,.18);transition:.3s;cursor:pointer}
-    .sn-dot.a{background:var(--g);box-shadow:0 0 0 3px rgba(27,122,74,.1);transform:scale(1.25)}
-    .tt{font-size:17px;font-weight:700;color:var(--t1);text-align:center;flex-shrink:0;padding:4% 5% 2%}
-    .tt span{position:relative;display:inline-block}.tt span::after{content:'';display:block;width:26px;height:2.5px;background:linear-gradient(90deg,var(--g),var(--a));border-radius:2px;margin:5px auto 0}
-    .btn-p{display:inline-flex!important;align-items:center;justify-content:center;height:46px;padding:0 34px;border:none!important;border-radius:23px;font-size:14px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--g),#2ECC71);color:var(--w)!important;box-shadow:0 4px 14px rgba(27,122,74,.25);transition:all .15s;-webkit-tap-highlight-color:transparent;letter-spacing:.5px;position:relative;overflow:hidden}
-    .btn-p:active{transform:scale(.93)!important}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>200元玩转呼包鄂乌 | 呼和浩特文旅惠民卡</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;background:linear-gradient(180deg,#F0F7F4,#FAFAF8,#F5F0EB);position:fixed}
+:root{--g:#1B7A4A;--g2:#0D5C36;--g3:#E8F5EE;--a:#F5A623;--a2:#FFF8E7;--w:#FFFFFF;--b:#FAFAF8;--t1:#1A1A2E;--t2:#5A6573;--t3:#9CA3AF;--r:18px;--rs:12px;--sh:0 1px 3px rgba(0,0,0,.03),0 4px 14px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.03)}
+.wrap{width:100%;height:100vh;overflow:hidden;position:relative;touch-action:none;-webkit-overflow-scrolling:auto}
+.pages{width:100%;height:100vh;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.pg{width:100%;height:100vh;float:left;display:flex;flex-direction:column;position:relative;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.pg::-webkit-scrollbar{display:none}
+.pg .bg-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.pg .bg-deco .b1{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(27,122,74,.05),transparent 70%);top:-70px;right:-60px}
+.pg .bg-deco .b2{position:absolute;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.04),transparent 70%);bottom:20px;left:-50px}
+.pg .bg-deco .b3{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(27,122,74,.03),transparent 70%);bottom:120px;right:30px}
+.pg .bg-deco .b4{position:absolute;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(197,225,205,.04),transparent 70%);top:30%;left:15%}
+.pb{position:fixed;top:0;left:0;right:0;height:2px;z-index:100;background:rgba(0,0,0,.04)}
+.pb-in{height:100%;background:linear-gradient(90deg,var(--g),#2ECC71);transition:width .55s}
+.snav{position:fixed;right:8px;top:50%;transform:translateY(-50%);z-index:99;display:flex;flex-direction:column;gap:6px}
+.sn-dot{width:4px;height:4px;border-radius:50%;background:rgba(27,122,74,.18);transition:.3s;cursor:pointer}
+.sn-dot.a{background:var(--g);box-shadow:0 0 0 3px rgba(27,122,74,.1);transform:scale(1.25)}
+.tt{font-size:17px;font-weight:700;color:var(--t1);text-align:center;flex-shrink:0;padding:4% 5% 2%}
+.tt span{position:relative;display:inline-block}.tt span::after{content:'';display:block;width:26px;height:2.5px;background:linear-gradient(90deg,var(--g),var(--a));border-radius:2px;margin:5px auto 0}
+.btn-p{display:inline-flex!important;align-items:center;justify-content:center;height:46px;padding:0 34px;border:none!important;border-radius:23px;font-size:14px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--g),#2ECC71);color:var(--w)!important;box-shadow:0 4px 14px rgba(27,122,74,.25);transition:all .15s;-webkit-tap-highlight-color:transparent;letter-spacing:.5px;position:relative;overflow:hidden}
+.btn-p:active{transform:scale(.93)!important}
 
-    @keyframes dr{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes sh{0%,100%{box-shadow:0 4px 16px rgba(245,166,35,.35)}50%{box-shadow:0 10px 30px rgba(245,166,35,.6)}}
-    @keyframes wv{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-    @keyframes fp{0%{transform:translateY(100vh) rotate(0);opacity:0}10%,90%{opacity:.5}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
-    @keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
-    @keyframes glide{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
-    @keyframes glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
-    @keyframes float{0%,100%{transform:translateY(0) rotate(0)}33%{transform:translateY(-6px) rotate(2deg)}66%{transform:translateY(3px) rotate(-2deg)}}
-    @keyframes bounce{0%{transform:scale(1)}30%{transform:scale(1.15)}60%{transform:scale(.95)}100%{transform:scale(1)}}
-    @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
-    @keyframes rain{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(80px) rotate(360deg);opacity:0}}
-    @keyframes gr{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-    .an{opacity:0}
-    .c1{animation:glide .5s forwards}.c2{animation:glide .5s .08s forwards}.c3{animation:glide .5s .16s forwards}
-    .c4{animation:glide .5s .24s forwards}.c5{animation:glide .5s .32s forwards}.c6{animation:glide .5s .4s forwards}
-    .pop{animation:pop .5s forwards}
+@keyframes dr{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sh{0%,100%{box-shadow:0 4px 16px rgba(245,166,35,.35)}50%{box-shadow:0 10px 30px rgba(245,166,35,.6)}}
+@keyframes wv{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes fp{0%{transform:translateY(100vh) rotate(0);opacity:0}10%,90%{opacity:.5}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
+@keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+@keyframes glide{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.2)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}33%{transform:translateY(-6px) rotate(2deg)}66%{transform:translateY(3px) rotate(-2deg)}}
+@keyframes bounce{0%{transform:scale(1)}30%{transform:scale(1.15)}60%{transform:scale(.95)}100%{transform:scale(1)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+@keyframes rain{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(80px) rotate(360deg);opacity:0}}
+@keyframes gr{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.an{opacity:0}
+.c1{animation:glide .5s forwards}.c2{animation:glide .5s .08s forwards}.c3{animation:glide .5s .16s forwards}
+.c4{animation:glide .5s .24s forwards}.c5{animation:glide .5s .32s forwards}.c6{animation:glide .5s .4s forwards}
+.pop{animation:pop .5s forwards}
 
-    /* P1 */
-    #p1{justify-content:center;align-items:center;text-align:center;padding:3% 6%;background:var(--g);overflow:hidden}
-    #p1 .bg{position:absolute;inset:0;background:linear-gradient(155deg,#0D5C36,#1B7A4A 35%,#2ECC71 120%);z-index:0}
-    #p1 .bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 85% 50% at 50% -8%,rgba(255,255,255,.07),transparent)}
-    #p1 .bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:28%;background:linear-gradient(to top,rgba(0,0,0,.08),transparent)}
-    #p1 .deco{position:absolute;inset:0;z-index:1;pointer-events:none}
-    #p1 .deco .c1{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04),transparent 70%);top:-35px;right:-55px}
-    #p1 .deco .c2{position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,179,0,.05),transparent);bottom:40px;left:-45px}
-    #p1 .deco .ln{position:absolute;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent)}
-    #p1 .deco .ln:nth-child(3){top:18%}#p1 .deco .ln:nth-child(4){top:48%}#p1 .deco .ln:nth-child(5){top:76%}
-    #p1 .pt{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-    #p1 .pt div{position:absolute;font-size:13px;opacity:0;animation:fp 14s infinite linear}
-    #p1 .pt div:nth-child(1){left:8%;animation-delay:0s}#p1 .pt div:nth-child(2){left:25%;animation-delay:2.5s;font-size:15px}
-    #p1 .pt div:nth-child(3){left:50%;animation-delay:5s;font-size:17px}#p1 .pt div:nth-child(4){left:70%;animation-delay:7.5s}
-    #p1 .pt div:nth-child(5){left:88%;animation-delay:1.5s;font-size:11px}#p1 .pt div:nth-child(6){left:15%;animation-delay:4s}
-    #p1 .pt div:nth-child(7){left:40%;animation-delay:6.5s;font-size:12px}#p1 .pt div:nth-child(8){left:60%;animation-delay:9s;font-size:10px}
-    #p1 .pt div:nth-child(9){left:80%;animation-delay:3s}#p1 .pt div:nth-child(10){left:35%;animation-delay:8s;font-size:14px}
-    #p1 *{position:relative;z-index:2}
-    #p1 .ip{width:74px;height:74px;background:url('https://s41.ax1x.com/2026/06/10/pmuok26.png') center/contain no-repeat!important;margin:0 auto 6px;animation:float 4s ease-in-out infinite}
-    #p1 h1{color:#fff;font-size:27px;font-weight:800;letter-spacing:2px}
-    #p1 .sub{color:rgba(255,255,255,.6);font-size:13px;letter-spacing:6px;margin-bottom:9px}
-    #p1 .pr{display:inline-flex;align-items:baseline;gap:4px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:7px 24px 6px 18px;margin-bottom:6px;animation:sh 2s infinite}
-    #p1 .pr .num{font-size:36px;font-weight:900;color:var(--a);line-height:1}
-    #p1 .pr .yr{font-size:14px;color:rgba(255,255,255,.75)}
-    #p1 .pr .oval{font-size:10px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-left:6px}
-    #p1 .cov{color:rgba(255,255,255,.5);font-size:10px;letter-spacing:7px;margin-bottom:5px}
-    #p1 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-bottom:5px}
-    #p1 .tags span{background:rgba(255,255,255,.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:rgba(255,255,255,.85);padding:4px 13px;border-radius:20px;font-size:9px;border:1px solid rgba(255,255,255,.06);transition:.3s}
-    #p1 .tags span:active{animation:bounce .4s;background:rgba(255,255,255,.15)}
-    #p1 .badge{display:inline-block;background:rgba(255,255,255,.06);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.04);border-radius:20px;padding:3px 14px;font-size:9px;color:rgba(255,255,255,.65);margin-bottom:9px;animation:glow 3s infinite}
-    #p1 .btn-p{background:linear-gradient(135deg,var(--a),#F7B731)!important;color:var(--g2)!important;box-shadow:0 4px 16px rgba(245,166,35,.35)!important;font-size:15px;height:50px;padding:0 38px;animation:sh 2s infinite!important;opacity:1!important;z-index:10}
-    #p1 .st{position:absolute;bottom:3%;left:0;width:100%;text-align:center}
-    #p1 .st p{font-size:8px;color:rgba(255,255,255,.35)}
-    #p1 .st .ar{width:10px;height:10px;border-right:1.5px solid rgba(255,255,255,.35);border-bottom:1.5px solid rgba(255,255,255,.35);transform:rotate(45deg);margin:0 auto;animation:bb 2s infinite}
-    @keyframes bb{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(4px)}}
+/* P1 */
+#p1{justify-content:center;align-items:center;text-align:center;padding:3% 6%;background:var(--g);overflow:hidden}
+#p1 .bg{position:absolute;inset:0;background:linear-gradient(155deg,#0D5C36,#1B7A4A 35%,#2ECC71 120%);z-index:0}
+#p1 .bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 85% 50% at 50% -8%,rgba(255,255,255,.07),transparent)}
+#p1 .bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:28%;background:linear-gradient(to top,rgba(0,0,0,.08),transparent)}
+#p1 .deco{position:absolute;inset:0;z-index:1;pointer-events:none}
+#p1 .deco .c1{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04),transparent 70%);top:-35px;right:-55px}
+#p1 .deco .c2{position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,179,0,.05),transparent);bottom:40px;left:-45px}
+#p1 .deco .ln{position:absolute;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent)}
+#p1 .deco .ln:nth-child(3){top:18%}#p1 .deco .ln:nth-child(4){top:48%}#p1 .deco .ln:nth-child(5){top:76%}
+#p1 .pt{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+#p1 .pt div{position:absolute;font-size:13px;opacity:0;animation:fp 14s infinite linear}
+#p1 .pt div:nth-child(1){left:8%;animation-delay:0s}#p1 .pt div:nth-child(2){left:25%;animation-delay:2.5s;font-size:15px}
+#p1 .pt div:nth-child(3){left:50%;animation-delay:5s;font-size:17px}#p1 .pt div:nth-child(4){left:70%;animation-delay:7.5s}
+#p1 .pt div:nth-child(5){left:88%;animation-delay:1.5s;font-size:11px}#p1 .pt div:nth-child(6){left:15%;animation-delay:4s}
+#p1 .pt div:nth-child(7){left:40%;animation-delay:6.5s;font-size:12px}#p1 .pt div:nth-child(8){left:60%;animation-delay:9s;font-size:10px}
+#p1 .pt div:nth-child(9){left:80%;animation-delay:3s}#p1 .pt div:nth-child(10){left:35%;animation-delay:8s;font-size:14px}
+#p1 *{position:relative;z-index:2}
+#p1 .ip{width:74px;height:74px;background:url('https://s41.ax1x.com/2026/06/10/pmuok26.png') center/contain no-repeat!important;margin:0 auto 6px;animation:float 4s ease-in-out infinite}
+#p1 h1{color:#fff;font-size:27px;font-weight:800;letter-spacing:2px}
+#p1 .sub{color:rgba(255,255,255,.6);font-size:13px;letter-spacing:6px;margin-bottom:9px}
+#p1 .pr{display:inline-flex;align-items:baseline;gap:4px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:7px 24px 6px 18px;margin-bottom:6px;animation:sh 2s infinite}
+#p1 .pr .num{font-size:36px;font-weight:900;color:var(--a);line-height:1}
+#p1 .pr .yr{font-size:14px;color:rgba(255,255,255,.75)}
+#p1 .pr .oval{font-size:10px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-left:6px}
+#p1 .cov{color:rgba(255,255,255,.5);font-size:10px;letter-spacing:7px;margin-bottom:5px}
+#p1 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-bottom:5px}
+#p1 .tags span{background:rgba(255,255,255,.08);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:rgba(255,255,255,.85);padding:4px 13px;border-radius:20px;font-size:9px;border:1px solid rgba(255,255,255,.06);transition:.3s}
+#p1 .tags span:active{animation:bounce .4s;background:rgba(255,255,255,.15)}
+#p1 .badge{display:inline-block;background:rgba(255,255,255,.06);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.04);border-radius:20px;padding:3px 14px;font-size:9px;color:rgba(255,255,255,.65);margin-bottom:9px;animation:glow 3s infinite}
+#p1 .btn-p{background:linear-gradient(135deg,var(--a),#F7B731)!important;color:var(--g2)!important;box-shadow:0 4px 16px rgba(245,166,35,.35)!important;font-size:15px;height:50px;padding:0 38px;animation:sh 2s infinite!important;opacity:1!important;z-index:10}
+#p1 .st{position:absolute;bottom:3%;left:0;width:100%;text-align:center}
+#p1 .st p{font-size:8px;color:rgba(255,255,255,.35)}
+#p1 .st .ar{width:10px;height:10px;border-right:1.5px solid rgba(255,255,255,.35);border-bottom:1.5px solid rgba(255,255,255,.35);transform:rotate(45deg);margin:0 auto;animation:bb 2s infinite}
+@keyframes bb{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(4px)}}
 
-    .pi{padding:0 5% 3%;flex:1;display:flex;flex-direction:column;gap:2.5%}
-    .card{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);transition:transform .15s,box-shadow .15s}
-    .card:active{transform:scale(.97)!important}
-    .card-p{padding:3.5% 5%}
-    .hot{display:inline-block;background:linear-gradient(135deg,#FF5722,#FF7043);color:#fff;padding:1px 8px;border-radius:10px;font-size:8px;font-weight:700;animation:glow 2s infinite;margin-left:4px}
-    .bc-tag{display:inline-block;background:var(--g3);color:var(--g);padding:1px 8px;border-radius:10px;font-size:8px;font-weight:500;cursor:pointer;transition:.2s}
-    .bc-tag:active{animation:bounce .4s;background:var(--g);color:#fff}
+.pi{padding:0 5% 3%;flex:1;display:flex;flex-direction:column;gap:2.5%}
+.card{background:var(--w);border-radius:var(--r);box-shadow:0 1px 3px rgba(0,0,0,.02),0 4px 14px rgba(0,0,0,.03),0 10px 30px rgba(0,0,0,.02);transition:transform .15s,box-shadow .2s;border:1px solid rgba(255,255,255,.8);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;border-radius:var(--r);background:linear-gradient(135deg,rgba(255,255,255,.7),transparent 50%,rgba(255,255,255,.05));pointer-events:none}
+.card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(27,122,74,.08),transparent);pointer-events:none}
+.card:active{transform:scale(.97)!important;box-shadow:0 1px 3px rgba(0,0,0,.04)!important}
+.card-p{padding:3.5% 5%}
+.p3-ben{margin-top:1%}
+.p3-ben .row{display:flex;justify-content:space-between;align-items:center;padding:2% 0;font-size:9px;color:var(--t2);border-bottom:1px solid #f5f5f5}
+.p3-ben .row:last-child{border:none}
+.p3-ben .row .lb{display:flex;align-items:center;gap:4px}
+.p3-ben .row .lb .ic{width:18px;height:18px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;flex-shrink:0}
+.p3-ben .row .vl{font-weight:600;color:var(--g);font-size:10px}
+.hot{display:inline-block;background:linear-gradient(135deg,#FF5722,#FF7043);color:#fff;padding:1px 8px;border-radius:10px;font-size:8px;font-weight:700;animation:glow 2s infinite;margin-left:4px}
+.bc-tag{display:inline-block;background:var(--g3);color:var(--g);padding:1px 8px;border-radius:10px;font-size:8px;font-weight:500;cursor:pointer;transition:.2s}
+.bc-tag:active{animation:bounce .4s;background:var(--g);color:#fff}
 
-    /* P2 */
-    #p2 .seal{text-align:center;padding:4% 5%}
-    #p2 .seal-in{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--g3),#D4EDDA);border:2px solid rgba(27,122,74,.15);border-radius:50px;padding:3px 18px 3px 3px;margin-bottom:4px;animation:float 5s ease-in-out infinite}
-    #p2 .seal-in .ck{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--g),#2ECC71);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px}
-    #p2 .seal-in .ct{font-size:10px;font-weight:700;color:var(--g)}
-    #p2 .seal h3{font-size:14px;color:var(--t1);font-weight:700;margin-bottom:2px}
-    #p2 .seal p{font-size:9px;color:var(--t2);line-height:1.6}
-    #p2 .srw{display:flex;gap:2.5%}
-    #p2 .srw .st{display:flex;gap:2.5%;flex:1}
-    #p2 .srw .st .it{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:4% 2%;text-align:center;flex:1;position:relative;overflow:hidden;cursor:pointer}
-    #p2 .srw .st .it:active{transform:scale(.9)}
-    #p2 .srw .st .it::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--g),#2ECC71)}
-    #p2 .srw .st .it .n{font-size:20px;font-weight:800;color:var(--g);transition:.3s}
-    #p2 .srw .st .it .n .u{font-size:11px;font-weight:400;opacity:.6}
-    #p2 .srw .st .it .l{font-size:9px;color:var(--t3);margin-top:3px}
-    #p2 .srw .dg{display:grid;grid-template-columns:1fr 1fr;gap:4%;flex:1.2}
-    #p2 .srw .dg div{background:var(--w);border-radius:var(--rs);box-shadow:var(--sh);text-align:center;font-size:9px;color:var(--t2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:3% 0;border:1px solid rgba(27,122,74,.06);cursor:pointer;transition:.2s}
-    #p2 .srw .dg div:active{transform:scale(.88);background:var(--g3)}
-    #p2 .srw .dg .ic{font-size:16px}
-    #p2 .map-b{background:linear-gradient(135deg,#E8F5EE,#FFF8E7);border-radius:var(--rs);padding:2.5% 5%;text-align:center;border:1px dashed rgba(27,122,74,.1);animation:glow 4s infinite}
-    #p2 .map-b p{font-size:12px;font-weight:600;color:var(--g);letter-spacing:1px}
-    #p2 .cg{display:grid;grid-template-columns:1fr 1fr;gap:2.5%}
-    #p2 .cg .c{background:var(--w);border-radius:var(--rs);box-shadow:var(--sh);padding:4% 5%;text-align:center;overflow:hidden;border:1px solid rgba(27,122,74,.06);cursor:pointer;transition:.2s}
-    #p2 .cg .c:active{animation:wiggle .4s;box-shadow:0 4px 16px rgba(27,122,74,.2)}
-    #p2 .cg .c .bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--a))}
-    #p2 .cg .c .em{font-size:24px;display:block;margin-bottom:2px}
-    #p2 .cg .c .cn{font-size:12px;color:var(--t1);font-weight:600}
-    #p2 .cg .c .cd{font-size:9px;color:var(--g);margin-top:3px;background:var(--g3);display:inline-block;padding:1px 10px;border-radius:4px;font-weight:500}
-    #p2 .ft2{background:linear-gradient(135deg,var(--w),#f8fff8);border-radius:var(--rs);box-shadow:var(--sh);padding:2% 4%;text-align:center;font-size:9px;color:var(--t3)}
+/* P2 */
+#p2 .seal{text-align:center;padding:4% 5%}
+#p2 .seal-in{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--g3),#D4EDDA);border:2px solid rgba(27,122,74,.15);border-radius:50px;padding:3px 18px 3px 3px;margin-bottom:4px;animation:float 5s ease-in-out infinite}
+#p2 .seal-in .ck{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--g),#2ECC71);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px}
+#p2 .seal-in .ct{font-size:10px;font-weight:700;color:var(--g)}
+#p2 .seal h3{font-size:14px;color:var(--t1);font-weight:700;margin-bottom:2px}
+#p2 .seal p{font-size:9px;color:var(--t2);line-height:1.6}
+#p2 .srw{display:flex;gap:2.5%}
+#p2 .srw .st{display:flex;gap:2.5%;flex:1}
+#p2 .srw .st .it{background:var(--w);border-radius:var(--r);box-shadow:0 1px 3px rgba(0,0,0,.02),0 4px 14px rgba(0,0,0,.03);padding:4% 2%;text-align:center;flex:1;position:relative;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.8)}
+#p2 .srw .st .it:active{transform:scale(.9)}
+#p2 .srw .st .it::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--g),#2ECC71)}
+#p2 .srw .st .it .n{font-size:20px;font-weight:800;color:var(--g);transition:.3s}
+#p2 .srw .st .it .n .u{font-size:11px;font-weight:400;opacity:.6}
+#p2 .srw .st .it .l{font-size:9px;color:var(--t3);margin-top:3px}
+#p2 .srw .dg{display:grid;grid-template-columns:1fr 1fr;gap:4%;flex:1.2}
+#p2 .srw .dg div{background:var(--w);border-radius:var(--rs);box-shadow:0 1px 2px rgba(0,0,0,.02),0 2px 8px rgba(0,0,0,.03);text-align:center;font-size:9px;color:var(--t2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:3% 0;border:1px solid rgba(27,122,74,.06);cursor:pointer;transition:.2s}
+#p2 .srw .dg div:active{transform:scale(.88);background:var(--g3)}
+#p2 .srw .dg .ic{font-size:16px}
+#p2 .map-b{background:linear-gradient(135deg,#E8F5EE,#FFF8E7);border-radius:var(--rs);padding:2.5% 5%;text-align:center;border:1px dashed rgba(27,122,74,.1);animation:glow 4s infinite}
+#p2 .map-b p{font-size:12px;font-weight:600;color:var(--g);letter-spacing:1px}
+#p2 .cg{display:grid;grid-template-columns:1fr 1fr;gap:2.5%}
+#p2 .cg .c{background:var(--w);border-radius:var(--rs);box-shadow:0 1px 2px rgba(0,0,0,.02),0 2px 8px rgba(0,0,0,.03);padding:4% 5%;text-align:center;overflow:hidden;border:1px solid rgba(27,122,74,.06);cursor:pointer;transition:.2s}
+#p2 .cg .c:active{animation:wiggle .4s;box-shadow:0 4px 16px rgba(27,122,74,.2)}
+#p2 .cg .c .bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--a))}
+#p2 .cg .c .em{font-size:24px;display:block;margin-bottom:2px}
+#p2 .cg .c .cn{font-size:12px;color:var(--t1);font-weight:600}
+#p2 .cg .c .cd{font-size:9px;color:var(--g);margin-top:3px;background:var(--g3);display:inline-block;padding:1px 10px;border-radius:4px;font-weight:500}
+#p2 .ft2{background:linear-gradient(135deg,var(--w),#f8fff8);border-radius:var(--rs);box-shadow:0 1px 2px rgba(0,0,0,.02),0 2px 8px rgba(0,0,0,.03);padding:2% 4%;text-align:center;font-size:9px;color:var(--t3);border:1px solid rgba(255,255,255,.8)}
 
-    /* P3 */
-    .sb{border-top:3px solid var(--g)}
-    .sb .hd{font-size:12px;font-weight:600;color:var(--g);text-align:center;margin-bottom:4%}
-    .sr{display:flex;align-items:flex-start;gap:3%;padding:3% 0;cursor:pointer;transition:all .15s;border-radius:8px;margin:0 -2%;padding:3% 2%}
-    .sr:active{background:var(--g3)}
-    .sr+.sr{border-top:1px solid #f5f5f5}
-    .sr .sn{width:26px;height:26px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;transition:.3s}
-    .sr:active .sn{animation:bounce .4s}
-    .sr .tx{font-size:11px;color:var(--t2);line-height:1.6;padding-top:2px}
-    .sr .tx .hl{color:var(--g);font-weight:600}
-    .sn2{background:var(--a2);border-radius:8px;padding:2.5% 4%;font-size:9px;color:#8B6914;line-height:1.6;margin-top:2%;border-left:3px solid var(--a)}
-    .sb.bl{border-top-color:#1976D2}.sb.bl .hd{color:#1976D2}
-    .sb.pu{border-top-color:#7B1FA2}.sb.pu .hd{color:#7B1FA2}
+/* P3 */
+.sb{border-top:3px solid var(--g)}
+.sb .hd{font-size:12px;font-weight:600;color:var(--g);text-align:center;margin-bottom:4%}
+.sr{display:flex;align-items:flex-start;gap:3%;padding:3% 0;cursor:pointer;transition:all .15s;border-radius:8px;margin:0 -2%;padding:3% 2%}
+.sr:active{background:var(--g3)}
+.sr+.sr{border-top:1px solid #f5f5f5}
+.sr .sn{width:26px;height:26px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px;transition:.3s}
+.sr:active .sn{animation:bounce .4s}
+.sr .tx{font-size:11px;color:var(--t2);line-height:1.6;padding-top:2px}
+.sr .tx .hl{color:var(--g);font-weight:600}
+.sn2{background:var(--a2);border-radius:8px;padding:2.5% 4%;font-size:9px;color:#8B6914;line-height:1.6;margin-top:2%;border-left:3px solid var(--a)}
+.sb.bl{border-top-color:#1976D2}.sb.bl .hd{color:#1976D2}
+.sb.pu{border-top-color:#7B1FA2}.sb.pu .hd{color:#7B1FA2}
 
-    /* P5 */
-    #p5 .sc{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;border-left:3px solid;cursor:pointer;transition:all .15s}
-    #p5 .sc:active{transform:scale(.97)}
-    #p5 .sc.m1{border-left-color:#2E7D32}
-    #p5 .sc.m2{border-left-color:#1976D2}
-    #p5 .sc .sh{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:2%;display:flex;align-items:center;gap:5px}
-    #p5 .sc .sh .si{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0}
-    #p5 .sc .r{display:flex;align-items:flex-start;gap:6px;padding:1.5% 0;font-size:10px;color:var(--t2);line-height:1.5}
-    #p5 .sc .r .d{width:5px;height:5px;border-radius:50%;background:var(--g3);flex-shrink:0;margin-top:5px}
-    #p5 .sc .r .hi{color:var(--g);font-weight:600}
-    #p5 .sep{text-align:center;font-size:10px;color:var(--g);font-weight:600;position:relative;padding:1.5% 0;cursor:pointer}
-    #p5 .sep span{background:var(--b);padding:0 12px;position:relative;z-index:2;transition:.2s}
-    #p5 .sep:active span{animation:bounce .4s}
-    #p5 .sep::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g3),transparent)}
-    #p5 .mock{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:all .35s ease;max-height:320px;opacity:1}
-    #p5 .mock.collapsed{max-height:0;opacity:0;padding:0;margin:0}
-    #p5 .mock:active{transform:scale(.97)}
-    #p5 .mock .mt{background:linear-gradient(90deg,#f5f5f5,#eee);padding:2% 4%;display:flex;align-items:center;justify-content:space-between}
-    #p5 .mock .mt .tl{font-size:11px;font-weight:600;color:var(--t1)}
-    #p5 .mock .mt .st{display:flex;gap:8px;font-size:8px;color:var(--t3)}
-    #p5 .mock .sh{display:flex;align-items:center;gap:5px;padding:2.5% 4%;background:#fafaf8;border-bottom:1px solid #f0f0f0}
-    #p5 .mock .sh .sq{width:22px;height:22px;border-radius:5px;background:var(--g3);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:9px}
-    #p5 .mock .sh h4{font-size:10px;font-weight:600;color:var(--t1)}
-    #p5 .mock .li{padding:2.5% 4%;border-bottom:1px solid #f5f5f5}
-    #p5 .mock .li .nm{font-size:10px;color:var(--t1);font-weight:500}
-    #p5 .mock .li .btns{display:flex;gap:5px;margin-top:4px}
-    #p5 .mock .li .btns .b{height:28px;padding:0 12px;border:none;border-radius:6px;font-size:8px;font-weight:600;cursor:pointer;transition:all .2s}
-    #p5 .mock .li .btns .b.sq{background:var(--g3);color:var(--g)}
-    #p5 .mock .li .btns .b.ma{background:var(--a2);color:#8B6914}
-    #p5 .mock .li .btns .b.done{background:#4CAF50;color:#fff}
-    #p5 .mock .li .btns .b:active{animation:bounce .4s}
-    #p5 .mock .inf{padding:2.5% 4%;background:#fafaf8}
-    #p5 .mock .inf .row{display:flex;justify-content:space-between;padding:1% 0;font-size:8px;color:var(--t2)}
-    #p5 .mock .inf .row .ph{color:var(--t1);font-weight:500}
-    #p5 .mock .inf .tags{display:flex;gap:4px;margin-top:1%}
-    #p5 .mock .inf .tags span{background:#f0f0f0;padding:0 7px;border-radius:3px;font-size:7px;color:var(--t3);cursor:pointer;transition:.15s}
-    #p5 .mock .inf .tags span:active{animation:bounce .3s;background:var(--g3);color:var(--g)}
+/* P5 */
+#p5 .sc{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;border-left:3px solid;cursor:pointer;transition:all .15s}
+#p5 .sc:active{transform:scale(.97)}
+#p5 .sc.m1{border-left-color:#2E7D32}
+#p5 .sc.m2{border-left-color:#1976D2}
+#p5 .sc .sh{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:2%;display:flex;align-items:center;gap:5px}
+#p5 .sc .sh .si{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0}
+#p5 .sc .r{display:flex;align-items:flex-start;gap:6px;padding:1.5% 0;font-size:10px;color:var(--t2);line-height:1.5}
+#p5 .sc .r .d{width:5px;height:5px;border-radius:50%;background:var(--g3);flex-shrink:0;margin-top:5px}
+#p5 .sc .r .hi{color:var(--g);font-weight:600}
+#p5 .sep{text-align:center;font-size:10px;color:var(--g);font-weight:600;position:relative;padding:1.5% 0;cursor:pointer}
+#p5 .sep span{background:var(--b);padding:0 12px;position:relative;z-index:2;transition:.2s}
+#p5 .sep:active span{animation:bounce .4s}
+#p5 .sep::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g3),transparent)}
+#p5 .mock{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:all .35s ease;max-height:320px;opacity:1}
+#p5 .mock.collapsed{max-height:0;opacity:0;padding:0;margin:0}
+#p5 .mock:active{transform:scale(.97)}
+#p5 .mock .mt{background:linear-gradient(90deg,#f5f5f5,#eee);padding:2% 4%;display:flex;align-items:center;justify-content:space-between}
+#p5 .mock .mt .tl{font-size:11px;font-weight:600;color:var(--t1)}
+#p5 .mock .mt .st{display:flex;gap:8px;font-size:8px;color:var(--t3)}
+#p5 .mock .sh{display:flex;align-items:center;gap:5px;padding:2.5% 4%;background:#fafaf8;border-bottom:1px solid #f0f0f0}
+#p5 .mock .sh .sq{width:22px;height:22px;border-radius:5px;background:var(--g3);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:9px}
+#p5 .mock .sh h4{font-size:10px;font-weight:600;color:var(--t1)}
+#p5 .mock .li{padding:2.5% 4%;border-bottom:1px solid #f5f5f5}
+#p5 .mock .li .nm{font-size:10px;color:var(--t1);font-weight:500}
+#p5 .mock .li .btns{display:flex;gap:5px;margin-top:4px}
+#p5 .mock .li .btns .b{height:28px;padding:0 12px;border:none;border-radius:6px;font-size:8px;font-weight:600;cursor:pointer;transition:all .2s}
+#p5 .mock .li .btns .b.sq{background:var(--g3);color:var(--g)}
+#p5 .mock .li .btns .b.ma{background:var(--a2);color:#8B6914}
+#p5 .mock .li .btns .b.done{background:#4CAF50;color:#fff}
+#p5 .mock .li .btns .b:active{animation:bounce .4s}
+#p5 .mock .inf{padding:2.5% 4%;background:#fafaf8}
+#p5 .mock .inf .row{display:flex;justify-content:space-between;padding:1% 0;font-size:8px;color:var(--t2)}
+#p5 .mock .inf .row .ph{color:var(--t1);font-weight:500}
+#p5 .mock .inf .tags{display:flex;gap:4px;margin-top:1%}
+#p5 .mock .inf .tags span{background:#f0f0f0;padding:0 7px;border-radius:3px;font-size:7px;color:var(--t3);cursor:pointer;transition:.15s}
+#p5 .mock .inf .tags span:active{animation:bounce .3s;background:var(--g3);color:var(--g)}
 
-    /* P7 */
-    #p7 .cw{display:flex;gap:2.5%}
-    #p7 .cc{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;flex:1}
-    #p7 .cc .ch{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3%;display:flex;align-items:center;gap:5px;padding-bottom:2.5%;border-bottom:1px solid #f0f0f0}
-    #p7 .cc .ch .ci{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0}
-    #p7 .cc .li{display:flex;justify-content:space-between;align-items:center;padding:3% 2%;margin:0 -2%;border-radius:6px;cursor:pointer;transition:.15s}
-    #p7 .cc .li:active{animation:bounce .4s;background:var(--g3)}
-    #p7 .cc .li+.li{border-top:1px dashed #f5f5f5}
-    #p7 .cc .li .ln{font-size:10px;color:var(--t1)}
-    #p7 .cc .li .ln small{color:var(--t3);font-size:8px;display:block;margin-top:1px}
-    #p7 .cc .li .rp{text-align:right}
-    #p7 .cc .li .rp .ol{font-size:8px;color:#ccc;text-decoration:line-through;display:block}
-    #p7 .cc .li .rp .nw{font-size:11px;font-weight:700;color:var(--a)}
-    #p7 .sg{display:grid;grid-template-columns:1fr 1fr;gap:1.5%}
-    #p7 .sg .it{position:relative;border-radius:var(--rs);overflow:hidden;box-shadow:var(--sh);aspect-ratio:1.2;cursor:pointer;transition:all .25s}
-    #p7 .sg .it:active{animation:wiggle .4s;box-shadow:0 6px 20px rgba(0,0,0,.15)}
-    #p7 .sg .it img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
-    #p7 .sg .it:active img{transform:scale(1.12)}
-    #p7 .sg .ov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);padding:5px 8px}
-    #p7 .sg .ov h4{color:#fff;font-size:10px;font-weight:600}
-    #p7 .sg .ov p{color:rgba(255,255,255,.5);font-size:7px}
-    #p7 .sg .ov .fr{position:absolute;top:4px;right:4px;background:var(--a);color:#fff;padding:1px 7px;border-radius:3px;font-size:7px;font-weight:700}
-    #p7 .ex{background:var(--w);border-radius:var(--rs);box-shadow:var(--sh);padding:1.5% 4%;text-align:center;font-size:9px;color:var(--t3)}
-    #p7 .nt{background:var(--a2);border-radius:8px;padding:1% 4%;text-align:center;font-size:8px;color:#8B6914}
+/* P7 */
+#p7 .cw{display:flex;gap:2.5%}
+#p7 .cc{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;flex:1}
+#p7 .cc .ch{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3%;display:flex;align-items:center;gap:5px;padding-bottom:2.5%;border-bottom:1px solid #f0f0f0}
+#p7 .cc .ch .ci{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;flex-shrink:0}
+#p7 .cc .li{display:flex;justify-content:space-between;align-items:center;padding:3% 2%;margin:0 -2%;border-radius:6px;cursor:pointer;transition:.15s}
+#p7 .cc .li:active{animation:bounce .4s;background:var(--g3)}
+#p7 .cc .li+.li{border-top:1px dashed #f5f5f5}
+#p7 .cc .li .ln{font-size:10px;color:var(--t1)}
+#p7 .cc .li .ln small{color:var(--t3);font-size:8px;display:block;margin-top:1px}
+#p7 .cc .li .rp{text-align:right}
+#p7 .cc .li .rp .ol{font-size:8px;color:#ccc;text-decoration:line-through;display:block}
+#p7 .cc .li .rp .nw{font-size:11px;font-weight:700;color:var(--a)}
+#p7 .sg{display:grid;grid-template-columns:1fr 1fr;gap:1.5%}
+#p7 .sg .it{position:relative;border-radius:var(--rs);overflow:hidden;box-shadow:var(--sh);aspect-ratio:1.2;cursor:pointer;transition:all .25s}
+#p7 .sg .it:active{animation:wiggle .4s;box-shadow:0 6px 20px rgba(0,0,0,.15)}
+#p7 .sg .it img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
+#p7 .sg .it:active img{transform:scale(1.12)}
+#p7 .sg .ov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);padding:5px 8px}
+#p7 .sg .ov h4{color:#fff;font-size:10px;font-weight:600}
+#p7 .sg .ov p{color:rgba(255,255,255,.5);font-size:7px}
+#p7 .sg .ov .fr{position:absolute;top:4px;right:4px;background:var(--a);color:#fff;padding:1px 7px;border-radius:3px;font-size:7px;font-weight:700}
+#p7 .ex{background:var(--w);border-radius:var(--rs);box-shadow:var(--sh);padding:1.5% 4%;text-align:center;font-size:9px;color:var(--t3)}
+#p7 .nt{background:var(--a2);border-radius:8px;padding:1% 4%;text-align:center;font-size:8px;color:#8B6914}
 
-    /* P8 */
-    #p8 .cl{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;cursor:pointer;transition:.15s}
-    #p8 .cl:active{transform:scale(.97)}
-    #p8 .cl .lh{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:2%;display:flex;align-items:center;gap:5px;padding-bottom:2%;border-bottom:1px solid #f0f0f0}
-    #p8 .cl .gv{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px}
-    #p8 .cl .gv .li{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:9px;color:var(--t2);border-bottom:1px solid #f8f8f8;cursor:pointer;transition:.15s;border-radius:4px;padding:3px 4px;margin:0 -4px}
-    #p8 .cl .gv .li:active{background:var(--g3);animation:bounce .3s}
-    #p8 .cl .gv .li:last-child{border-bottom:none}
-    #p8 .cl .gv .li .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
-    #p8 .cl .gv .li .rc{display:flex;gap:4px;align-items:center;flex-shrink:0}
-    #p8 .cl .gv .li .rc .ol{color:#ccc;font-size:7px;text-decoration:line-through}
-    #p8 .cl .gv .li .rc .fr{background:var(--g3);color:var(--g);padding:1px 6px;border-radius:3px;font-size:8px;font-weight:600}
-    #p8 .val{background:linear-gradient(135deg,#E8F5EE,#D4EDDA,#C8E6C9);border-radius:var(--r);padding:2.5% 5%;text-align:center;background-size:200% 200%;animation:gr 6s ease infinite}
-    #p8 .val .vt{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2px}
-    #p8 .val .vt .cl{width:56px;height:56px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.1);cursor:pointer;transition:.2s}
-    #p8 .val .vt .cl:active{animation:bounce .4s}
-    #p8 .val .vt .cl.g1{background:linear-gradient(135deg,var(--a),#F7B731)}
-    #p8 .val .vt .cl.g2{background:linear-gradient(135deg,var(--g),#2ECC71)}
-    #p8 .val .vt .cl .b{font-size:16px;font-weight:800}
-    #p8 .val .vt .cl .s{font-size:8px;opacity:.9}
-    #p8 .val .vt .eq{font-size:14px;color:#999;animation:wiggle 2s infinite}
-    #p8 .val .cp{font-size:8px;color:var(--t3)}
-    #p8 .val .d{font-size:14px;font-weight:800;color:var(--g)}
-    #p8 .val .d small{font-size:9px;font-weight:400;color:var(--t2)}
-    #p8 .note2{background:linear-gradient(135deg,var(--a2),#FFF3D6);border-radius:8px;padding:1.5% 4%;text-align:center;font-size:9px;color:#8B6914;border:1px solid rgba(245,166,35,.2)}
+/* P8 */
+#p8 .cl{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;cursor:pointer;transition:.15s}
+#p8 .cl:active{transform:scale(.97)}
+#p8 .cl .lh{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:2%;display:flex;align-items:center;gap:5px;padding-bottom:2%;border-bottom:1px solid #f0f0f0}
+#p8 .cl .gv{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px}
+#p8 .cl .gv .li{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:9px;color:var(--t2);border-bottom:1px solid #f8f8f8;cursor:pointer;transition:.15s;border-radius:4px;padding:3px 4px;margin:0 -4px}
+#p8 .cl .gv .li:active{background:var(--g3);animation:bounce .3s}
+#p8 .cl .gv .li:last-child{border-bottom:none}
+#p8 .cl .gv .li .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62%}
+#p8 .cl .gv .li .rc{display:flex;gap:4px;align-items:center;flex-shrink:0}
+#p8 .cl .gv .li .rc .ol{color:#ccc;font-size:7px;text-decoration:line-through}
+#p8 .cl .gv .li .rc .fr{background:var(--g3);color:var(--g);padding:1px 6px;border-radius:3px;font-size:8px;font-weight:600}
+#p8 .val{background:linear-gradient(135deg,#E8F5EE,#D4EDDA,#C8E6C9);border-radius:var(--r);padding:2.5% 5%;text-align:center;background-size:200% 200%;animation:gr 6s ease infinite}
+#p8 .val .vt{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:2px}
+#p8 .val .vt .cl{width:56px;height:56px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.1);cursor:pointer;transition:.2s}
+#p8 .val .vt .cl:active{animation:bounce .4s}
+#p8 .val .vt .cl.g1{background:linear-gradient(135deg,var(--a),#F7B731)}
+#p8 .val .vt .cl.g2{background:linear-gradient(135deg,var(--g),#2ECC71)}
+#p8 .val .vt .cl .b{font-size:16px;font-weight:800}
+#p8 .val .vt .cl .s{font-size:8px;opacity:.9}
+#p8 .val .vt .eq{font-size:14px;color:#999;animation:wiggle 2s infinite}
+#p8 .val .cp{font-size:8px;color:var(--t3)}
+#p8 .val .d{font-size:14px;font-weight:800;color:var(--g)}
+#p8 .val .d small{font-size:9px;font-weight:400;color:var(--t2)}
+#p8 .note2{background:linear-gradient(135deg,var(--a2),#FFF3D6);border-radius:8px;padding:1.5% 4%;text-align:center;font-size:9px;color:#8B6914;border:1px solid rgba(245,166,35,.2)}
 
-    /* P9 */
-    #p9 .pi{gap:2%}
-    #p9 .ct{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:4% 5%;text-align:center;cursor:pointer;transition:.15s}
-    #p9 .ct:active{transform:scale(.97)}
-    #p9 .ct .ctt{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px}
-    #p9 .ct .ph{font-size:26px;font-weight:800;color:#D32F2F;letter-spacing:2px;animation:glow 2.5s infinite}
-    #p9 .ct .ph a{color:#D32F2F;text-decoration:none}
-    #p9 .ct .ctd{font-size:9px;color:var(--t3);margin-top:2px}
-    #p9 .rw2{display:flex;gap:2.5%}
-    #p9 .ic{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;flex:1;cursor:pointer;transition:.15s}
-    #p9 .ic:active{animation:bounce .3s;background:#f5f5f5}
-    #p9 .ic .ih{font-size:10px;font-weight:600;color:var(--t1);margin-bottom:2px}
-    #p9 .ic .ib{font-size:9px;color:var(--t2);line-height:1.5}
-    #p9 .ic .qr{display:flex;gap:6px;margin-top:3px}
-    #p9 .ic .qr div{width:42px;height:42px;background:#f5f5f5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--t3);flex-direction:column;gap:1px;border:1px solid #eee;transition:.2s;cursor:pointer}
-    #p9 .ic .qr div:active{animation:bounce .3s;background:var(--g3);color:var(--g)}
-    #p9 .bw{text-align:center;padding:1.5% 0}
-    #p9 .foot{background:linear-gradient(155deg,#0D5C36,#1B7A4A 60%,#106B3F);border-radius:var(--r);color:#fff;text-align:center;padding:3.5% 5%;overflow:hidden;position:relative}
-    #p9 .foot .fd{position:absolute;inset:0;pointer-events:none}
-    #p9 .foot .fd .c{position:absolute;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04),transparent);top:-35px;right:-35px}
-    #p9 .foot *{position:relative}
-    #p9 .foot .fl{width:44px;height:44px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 2px;border:1px solid rgba(255,255,255,.08)}
-    #p9 .foot .fl span{font-size:11px;font-weight:700;color:#fff}
-    #p9 .foot h5{font-size:13px;font-weight:400;letter-spacing:1px}
-    #p9 .foot .fi{font-size:8px;line-height:1.5;opacity:.55}
-    #p9 .foot .fln{font-size:10px;background:rgba(255,255,255,.04);padding:2px 12px;border-radius:20px;display:inline-block;border:1px solid rgba(255,255,255,.05)}
-    #p9 .foot .fcp{font-size:7px;opacity:.3}
+/* P9 */
+#p9 .pi{gap:2%}
+#p9 .ct{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:4% 5%;text-align:center;cursor:pointer;transition:.15s}
+#p9 .ct:active{transform:scale(.97)}
+#p9 .ct .ctt{font-size:11px;font-weight:600;color:var(--t1);margin-bottom:3px}
+#p9 .ct .ph{font-size:26px;font-weight:800;color:#D32F2F;letter-spacing:2px;animation:glow 2.5s infinite}
+#p9 .ct .ph a{color:#D32F2F;text-decoration:none}
+#p9 .ct .ctd{font-size:9px;color:var(--t3);margin-top:2px}
+#p9 .rw2{display:flex;gap:2.5%}
+#p9 .ic{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);padding:3% 4%;flex:1;cursor:pointer;transition:.15s}
+#p9 .ic:active{animation:bounce .3s;background:#f5f5f5}
+#p9 .ic .ih{font-size:10px;font-weight:600;color:var(--t1);margin-bottom:2px}
+#p9 .ic .ib{font-size:9px;color:var(--t2);line-height:1.5}
+#p9 .ic .qr{display:flex;gap:6px;margin-top:3px}
+#p9 .ic .qr div{width:42px;height:42px;background:#f5f5f5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--t3);flex-direction:column;gap:1px;border:1px solid #eee;transition:.2s;cursor:pointer}
+#p9 .ic .qr div:active{animation:bounce .3s;background:var(--g3);color:var(--g)}
+#p9 .bw{text-align:center;padding:1.5% 0}
+#p9 .foot{background:linear-gradient(155deg,#0D5C36,#1B7A4A 60%,#106B3F);border-radius:var(--r);color:#fff;text-align:center;padding:3.5% 5%;overflow:hidden;position:relative}
+#p9 .foot .fd{position:absolute;inset:0;pointer-events:none}
+#p9 .foot .fd .c{position:absolute;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04),transparent);top:-35px;right:-35px}
+#p9 .foot *{position:relative}
+#p9 .foot .fl{width:44px;height:44px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 2px;border:1px solid rgba(255,255,255,.08)}
+#p9 .foot .fl span{font-size:11px;font-weight:700;color:#fff}
+#p9 .foot h5{font-size:13px;font-weight:400;letter-spacing:1px}
+#p9 .foot .fi{font-size:8px;line-height:1.5;opacity:.55}
+#p9 .foot .fln{font-size:10px;background:rgba(255,255,255,.04);padding:2px 12px;border-radius:20px;display:inline-block;border:1px solid rgba(255,255,255,.05)}
+#p9 .foot .fcp{font-size:7px;opacity:.3}
 
-    /* Detail Modal */
-    .dmodal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.25s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-    .dmodal.s{opacity:1;visibility:visible}
-    .dm-box{background:#fff;border-radius:20px;width:86%;max-width:320px;max-height:70vh;overflow-y:auto;transform:scale(.85) translateY(20px);transition:.35s cubic-bezier(.34,1.56,.64,1);padding:0}
-    .dmodal.s .dm-box{transform:scale(1) translateY(0)}
-    .dm-box::-webkit-scrollbar{display:none}
-    .dm-hd{position:sticky;top:0;background:#fff;padding:4% 5% 3%;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;z-index:2}
-    .dm-hd h3{font-size:14px;font-weight:700;color:var(--t1)}
-    .dm-hd .dc{width:24px;height:24px;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;color:#999;font-size:13px;cursor:pointer;transition:.15s}
-    .dm-hd .dc:active{background:#ddd;transform:scale(.9)}
-    .dm-body{padding:3% 5% 5%}
-    .dm-item{display:flex;justify-content:space-between;align-items:center;padding:3% 0;font-size:10px;color:var(--t2);border-bottom:1px solid #f8f8f8}
-    .dm-item:last-child{border:none}
-    .dm-item .dmn{flex:1;padding-right:8px}
-    .dm-item .dmr{text-align:right;flex-shrink:0}
-    .dm-item .dmr .dol{color:#ccc;font-size:8px;text-decoration:line-through;display:block}
-    .dm-item .dmr .dnw{color:var(--a);font-weight:700;font-size:10px}
-    .dm-tip{background:var(--a2);border-radius:6px;padding:2% 4%;font-size:8px;color:#8B6914;margin-top:3%;line-height:1.5}
+/* Detail Modal */
+.dmodal{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.25s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.dmodal.s{opacity:1;visibility:visible}
+.dm-box{background:#fff;border-radius:20px;width:86%;max-width:320px;max-height:70vh;overflow-y:auto;transform:scale(.85) translateY(20px);transition:.35s cubic-bezier(.34,1.56,.64,1);padding:0}
+.dmodal.s .dm-box{transform:scale(1) translateY(0)}
+.dm-box::-webkit-scrollbar{display:none}
+.dm-hd{position:sticky;top:0;background:#fff;padding:4% 5% 3%;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;z-index:2}
+.dm-hd h3{font-size:14px;font-weight:700;color:var(--t1)}
+.dm-hd .dc{width:24px;height:24px;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;color:#999;font-size:13px;cursor:pointer;transition:.15s}
+.dm-hd .dc:active{background:#ddd;transform:scale(.9)}
+.dm-body{padding:3% 5% 5%}
+.dm-item{display:flex;justify-content:space-between;align-items:center;padding:3% 0;font-size:10px;color:var(--t2);border-bottom:1px solid #f8f8f8}
+.dm-item:last-child{border:none}
+.dm-item .dmn{flex:1;padding-right:8px}
+.dm-item .dmr{text-align:right;flex-shrink:0}
+.dm-item .dmr .dol{color:#ccc;font-size:8px;text-decoration:line-through;display:block}
+.dm-item .dmr .dnw{color:var(--a);font-weight:700;font-size:10px}
+.dm-tip{background:var(--a2);border-radius:6px;padding:2% 4%;font-size:8px;color:#8B6914;margin-top:3%;line-height:1.5}
 
-    #toast{position:fixed;bottom:18%;left:50%;transform:translateX(-50%);z-index:2000;background:rgba(0,0,0,.78);color:#fff;padding:10px 22px;border-radius:24px;font-size:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none;opacity:0;transition:.35s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.15)}
-    #toast.s{opacity:1}
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.25s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-    .modal.s{opacity:1;visibility:visible}
-    .modal-box{background:#fff;border-radius:22px;padding:26px;width:84%;max-width:300px;text-align:center;transform:scale(.88);transition:.35s cubic-bezier(.34,1.56,.64,1)}
-    .modal.s .modal-box{transform:scale(1)}
-    .am{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1001;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.25s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-    .am.s{opacity:1;visibility:visible}
-    .am-box{background:#fff;border-radius:22px;padding:24px 20px;width:88%;max-width:320px;position:relative;border-top:3px solid var(--g);transform:scale(.88);transition:.35s cubic-bezier(.34,1.56,.64,1)}
-    .am.s .am-box{transform:scale(1)}
-    .ac{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;cursor:pointer}
-    .fgp{margin-bottom:9px;text-align:left}.fgp label{display:block;font-size:10px;margin-bottom:2px;color:var(--t2)}
-    .fgp input{width:100%;padding:9px 12px;border:1px solid #e5e5e5;border-radius:9px;font-size:11px;outline:none;background:#fafafa}
-    .fgp input:focus{border-color:var(--g);background:#fff;box-shadow:0 0 0 3px rgba(27,122,74,.06)}
-    .bs{width:100%;height:42px;border:none;border-radius:21px;background:linear-gradient(135deg,var(--g),#2ECC71);color:#fff;font-size:13px;font-weight:700;cursor:pointer;margin-top:3px}
-    .mb{position:fixed;bottom:14px;right:14px;z-index:1002;cursor:pointer}
-    .mb .ic{width:42px;height:42px;border-radius:50%;background:rgba(27,122,74,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 3px 12px rgba(27,122,74,.25);border:1px solid rgba(255,255,255,.08);transition:.3s}
-    .mb.p .ic{animation:sp 4s linear infinite}
-    @keyframes sp{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-    @media(min-width:500px){.pi{padding-left:8%;padding-right:8%;max-width:440px;margin:0 auto}}
-  </style>
+#toast{position:fixed;bottom:18%;left:50%;transform:translateX(-50%);z-index:2000;background:rgba(0,0,0,.78);color:#fff;padding:10px 22px;border-radius:24px;font-size:12px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none;opacity:0;transition:.35s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+#toast.s{opacity:1}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.25s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal.s{opacity:1;visibility:visible}
+.modal-box{background:#fff;border-radius:22px;padding:26px;width:84%;max-width:300px;text-align:center;transform:scale(.88);transition:.35s cubic-bezier(.34,1.56,.64,1)}
+.modal.s .modal-box{transform:scale(1)}
+.am{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1001;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.25s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.am.s{opacity:1;visibility:visible}
+.am-box{background:#fff;border-radius:22px;padding:24px 20px;width:88%;max-width:320px;position:relative;border-top:3px solid var(--g);transform:scale(.88);transition:.35s cubic-bezier(.34,1.56,.64,1)}
+.am.s .am-box{transform:scale(1)}
+.ac{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;cursor:pointer}
+.fgp{margin-bottom:9px;text-align:left}.fgp label{display:block;font-size:10px;margin-bottom:2px;color:var(--t2)}
+.fgp input{width:100%;padding:9px 12px;border:1px solid #e5e5e5;border-radius:9px;font-size:11px;outline:none;background:#fafafa}
+.fgp input:focus{border-color:var(--g);background:#fff;box-shadow:0 0 0 3px rgba(27,122,74,.06)}
+.bs{width:100%;height:42px;border:none;border-radius:21px;background:linear-gradient(135deg,var(--g),#2ECC71);color:#fff;font-size:13px;font-weight:700;cursor:pointer;margin-top:3px}
+.mb{position:fixed;bottom:14px;right:14px;z-index:1002;cursor:pointer}
+.mb .ic{width:42px;height:42px;border-radius:50%;background:rgba(27,122,74,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 3px 12px rgba(27,122,74,.25);border:1px solid rgba(255,255,255,.08);transition:.3s}
+.mb.p .ic{animation:sp 4s linear infinite}
+@keyframes sp{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media(min-width:500px){.pi{padding-left:8%;padding-right:8%;max-width:440px;margin:0 auto}}
+</style>
 </head>
 <body>
 <div class="pb"><div class="pb-in" id="pbar"></div></div>
@@ -292,134 +305,153 @@
 
 <div class="wrap"><div class="pages" id="pages">
 
-  <!-- P1 -->
-  <section class="pg" id="p1">
-    <div class="bg"></div><div class="deco"><div class="c1"></div><div class="c2"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
-    <div class="pt"><div>🌿</div><div>🍃</div><div>🌸</div><div>✨</div><div>🌱</div><div>🍀</div><div>🌼</div><div>💚</div><div>⭐</div><div>🌻</div></div>
-    <div class="ip an" style="animation:glide .6s forwards"></div>
-    <h1 class="an" style="animation:glide .6s .08s forwards">呼和浩特文旅惠民卡</h1>
-    <p class="sub an" style="animation:glide .6s .16s forwards">一卡在手 · 畅游青城</p>
-    <div class="pr an" style="animation:glide .6s .24s forwards"><span class="num">200</span><span class="yr">元/年</span><span class="oval">≈20000元</span></div>
-    <p class="cov an" style="animation:glide .6s .32s forwards">覆盖 · 吃住行游购娱</p>
-    <div class="tags an" style="animation:glide .6s .4s forwards"><span onclick="showToast('🏔️ 20家A级景区畅玩')">🏔️ 20家景区</span><span onclick="showToast('🎭 17家休闲场馆任选')">🎭 17家场馆</span><span onclick="showToast('♨️ 3家温泉度假')">♨️ 3家温泉</span><span onclick="showToast('🎬 4家连锁影城')">🎬 4家影城</span></div>
-    <div class="badge an" style="animation:glide .6s .48s forwards">🏛 市政府批准 · 四部门联合推动</div>
-    <button class="btn-p an" id="applyBtn" style="animation:sh 2s infinite!important;opacity:1!important">立即办理 200元/年</button>
-    <div class="st an" style="animation:fi .5s .6s forwards"><p>上滑了解详情</p><div class="ar"></div></div>
-  </section>
+<!-- P1 -->
+<section class="pg" id="p1">
+<div class="bg"></div><div class="deco"><div class="c1"></div><div class="c2"></div><div class="ln"></div><div class="ln"></div><div class="ln"></div></div>
+<div class="pt"><div>🌿</div><div>🍃</div><div>🌸</div><div>✨</div><div>🌱</div><div>🍀</div><div>🌼</div><div>💚</div><div>⭐</div><div>🌻</div></div>
+<div class="ip an" style="animation:glide .6s forwards"></div>
+<h1 class="an" style="animation:glide .6s .08s forwards">呼和浩特文旅惠民卡</h1>
+<p class="sub an" style="animation:glide .6s .16s forwards">一卡在手 · 畅游青城</p>
+<div class="pr an" style="animation:glide .6s .24s forwards"><span class="num">200</span><span class="yr">元/年</span><span class="oval">≈20000元</span></div>
+<p class="cov an" style="animation:glide .6s .32s forwards">覆盖 · 吃住行游购娱</p>
+<div class="tags an" style="animation:glide .6s .4s forwards"><span onclick="showToast('🏔️ 20家A级景区畅玩')">🏔️ 20家景区</span><span onclick="showToast('🎭 17家休闲场馆任选')">🎭 17家场馆</span><span onclick="showToast('♨️ 3家温泉度假')">♨️ 3家温泉</span><span onclick="showToast('🎬 4家连锁影城')">🎬 4家影城</span></div>
+<div class="badge an" style="animation:glide .6s .48s forwards">🏛 市政府批准 · 四部门联合推动</div>
+<button class="btn-p an" id="applyBtn" style="animation:sh 2s infinite!important;opacity:1!important">立即办理 200元/年</button>
+<div class="st an" style="animation:fi .5s .6s forwards"><p>上滑了解详情</p><div class="ar"></div></div>
+</section>
 
-  <!-- P2 -->
-  <section class="pg" id="p2">
-    <div class="tt c1"><span>官方惠民 · 一卡四城</span></div>
-    <div class="pi">
-      <div class="seal card card-p c1"><div class="seal-in"><span class="ck">✓</span><span class="ct">呼和浩特市政府专项惠民工程</span></div><h3>市文旅广电局 · 总工会 · 人社局 · 工商联</h3><p>四部门联合推动 · 内蒙古旅游行业协会监制</p></div>
-      <div class="srw c2"><div class="st"><div class="it" id="stat1"><div class="n" data-target="12">0<span class="u">万+</span></div><div class="l">在册用户</div></div><div class="it" id="stat2"><div class="n" data-target="98">0<span class="u">%</span></div><div class="l">用户好评</div></div><div class="it" id="stat3"><div class="n" data-target="44">0<span class="u">家</span></div><div class="l">合作商户</div></div></div>
-        <div class="dg"><div onclick="showToast('🏛 文旅广电局 · 行业主管')"><span class="ic">🏛️</span>文旅广电局</div><div onclick="showToast('🤝 总工会 · 职工福利')"><span class="ic">🤝</span>总工会</div><div onclick="showToast('👥 人社局 · 民生保障')"><span class="ic">👥</span>人社局</div><div onclick="showToast('🏪 工商联 · 商业联合')"><span class="ic">🏪</span>工商联</div></div></div>
-      <div class="map-b c3"><p>🏞 覆盖呼包鄂乌 · 周末周边游首选</p></div>
-      <div class="cg c4"><div class="c" onclick="sparkle(this);showToast('🌆 呼和浩特 · 20家景区等你来')"><span class="em">🌆</span><div class="cn">呼和浩特</div><div class="cd">20家景区</div><span class="bar"></span></div>
-        <div class="c" onclick="sparkle(this);showToast('🏭 包头 · 17家休闲场馆')"><span class="em">🏭</span><div class="cn">包头</div><div class="cd">17家场馆</div><span class="bar"></span></div>
-        <div class="c" onclick="sparkle(this);showToast('⛰️ 鄂尔多斯 · 3家天然温泉')"><span class="em">⛰️</span><div class="cn">鄂尔多斯</div><div class="cd">3家温泉</div><span class="bar"></span></div>
-        <div class="c" onclick="sparkle(this);showToast('🌾 乌兰察布 · 4家连锁影城')"><span class="em">🌾</span><div class="cn">乌兰察布</div><div class="cd">4家影城</div><span class="bar"></span></div></div>
-      <div class="ft2 c5">✅ 全景点节假日正常开放 · 无需预约 · 随到随玩</div></div></section>
+<!-- P2 -->
+<section class="pg" id="p2"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>官方惠民 · 一卡四城</span></div>
+<div class="pi">
+<div class="seal card card-p c1"><div class="seal-in"><span class="ck">✓</span><span class="ct">呼和浩特市政府专项惠民工程</span></div><h3>市文旅广电局 · 总工会 · 人社局 · 工商联</h3><p>四部门联合推动 · 内蒙古旅游行业协会监制</p></div>
+<div class="srw c2"><div class="st"><div class="it" id="stat1"><div class="n" data-target="12">0<span class="u">万+</span></div><div class="l">在册用户</div></div><div class="it" id="stat2"><div class="n" data-target="98">0<span class="u">%</span></div><div class="l">用户好评</div></div><div class="it" id="stat3"><div class="n" data-target="44">0<span class="u">家</span></div><div class="l">合作商户</div></div></div>
+<div class="dg"><div onclick="showToast('🏛 文旅广电局 · 行业主管')"><span class="ic">🏛️</span>文旅广电局</div><div onclick="showToast('🤝 总工会 · 职工福利')"><span class="ic">🤝</span>总工会</div><div onclick="showToast('👥 人社局 · 民生保障')"><span class="ic">👥</span>人社局</div><div onclick="showToast('🏪 工商联 · 商业联合')"><span class="ic">🏪</span>工商联</div></div></div>
+<div class="map-b c3"><p>🏞 覆盖呼包鄂乌 · 周末周边游首选</p></div>
+<div class="cg c4"><div class="c" onclick="sparkle(this);showToast('🌆 呼和浩特 · 20家景区等你来')"><span class="em">🌆</span><div class="cn">呼和浩特</div><div class="cd">20家景区</div><span class="bar"></span></div>
+<div class="c" onclick="sparkle(this);showToast('🏭 包头 · 17家休闲场馆')"><span class="em">🏭</span><div class="cn">包头</div><div class="cd">17家场馆</div><span class="bar"></span></div>
+<div class="c" onclick="sparkle(this);showToast('⛰️ 鄂尔多斯 · 3家天然温泉')"><span class="em">⛰️</span><div class="cn">鄂尔多斯</div><div class="cd">3家温泉</div><span class="bar"></span></div>
+<div class="c" onclick="sparkle(this);showToast('🌾 乌兰察布 · 4家连锁影城')"><span class="em">🌾</span><div class="cn">乌兰察布</div><div class="cd">4家影城</div><span class="bar"></span></div></div>
+<div class="ft2 c5">✅ 全景点节假日正常开放 · 无需预约 · 随到随玩</div></div></section>
 
-  <!-- P3 -->
-  <section class="pg" id="p3">
-    <div class="tt c1"><span>购买惠民卡</span></div>
-    <div class="pi">
-      <div class="card sb card-p c1"><div class="hd">🛒 微信小程序 · 30秒购卡</div>
-        <div class="sr" onclick="showToast('👉 前往小程序首页办理')"><span class="sn" style="background:#2E7D32">1</span><span class="tx">打开小程序 → 首页点 <span class="hl">「惠民卡办理」</span></span></div>
-        <div class="sr" onclick="showToast('📋 请仔细阅读条款')"><span class="sn" style="background:#1976D2">2</span><span class="tx">阅读 <span class="hl">「购卡须知」</span> 与 <span class="hl">「购卡协议」</span></span></div>
-        <div class="sr" onclick="showToast('✅ 付款即购买成功')"><span class="sn" style="background:#F5A623">3</span><span class="tx">点击 <span class="hl">「选好了」</span> 付款 → 购买成功</span></div>
-        <div class="sn2">💡 建议仔细阅读购卡须知，确保权益明细透明</div></div>
-      <div class="card sb card-p c2"><div class="hd">💰 购卡信息</div>
-        <div style="display:flex;align-items:center;gap:3%;padding:3% 0"><span style="width:26px;height:26px;border-radius:50%;background:var(--a2);display:flex;align-items:center;justify-content:center;color:var(--a);font-size:13px;font-weight:700;flex-shrink:0">¥</span><span style="font-size:15px;color:var(--t2)"><span style="font-weight:700;color:var(--g);font-size:20px">200</span>元/年 · 总价值近20000元</span></div>
-        <div style="display:flex;align-items:center;gap:3%;padding:3% 0;border-top:1px solid #f5f5f5"><span style="width:26px;height:26px;border-radius:50%;background:#f3e8ff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🏛</span><span style="font-size:11px;color:var(--t2)">市政府批准 · 四部门联合推动 · 正规品质</span></div></div></div></section>
+<!-- P3 -->
+<section class="pg" id="p3"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>购买惠民卡</span></div>
+<div class="pi">
+<div class="card sb card-p c1"><div class="hd">🛒 微信小程序 · 30秒购卡</div>
+<div class="sr" onclick="showToast('👉 前往小程序首页办理')"><span class="sn" style="background:#2E7D32">1</span><span class="tx">打开小程序 → 首页点 <span class="hl">「惠民卡办理」</span></span></div>
+<div class="sr" onclick="showToast('📋 请仔细阅读条款')"><span class="sn" style="background:#1976D2">2</span><span class="tx">阅读 <span class="hl">「购卡须知」</span> 与 <span class="hl">「购卡协议」</span></span></div>
+<div class="sr" onclick="showToast('✅ 付款即购买成功')"><span class="sn" style="background:#F5A623">3</span><span class="tx">点击 <span class="hl">「选好了」</span> 付款 → 购买成功</span></div>
+<div class="sn2">💡 建议仔细阅读购卡须知，确保权益明细透明</div></div>
+<div class="card sb card-p c2"><div class="hd">💰 购卡信息</div>
+<div style="display:flex;align-items:center;gap:3%;padding:3% 0"><span style="width:26px;height:26px;border-radius:50%;background:var(--a2);display:flex;align-items:center;justify-content:center;color:var(--a);font-size:13px;font-weight:700;flex-shrink:0">¥</span><span style="font-size:15px;color:var(--t2)"><span style="font-weight:700;color:var(--g);font-size:20px">200</span>元/年 · 总价值近20000元</span></div>
+<div style="display:flex;align-items:center;gap:3%;padding:3% 0;border-top:1px solid #f5f5f5"><span style="width:26px;height:26px;border-radius:50%;background:#f3e8ff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🏛</span><span style="font-size:11px;color:var(--t2)">市政府批准 · 四部门联合推动 · 正规品质</span></div></div></div>
+<div class="card sb card-p c3"><div class="hd">🎯 核心权益 · 一卡全覆盖</div>
+<div class="p3-ben">
+<div class="row"><span class="lb"><span class="ic" style="background:#1976D2">💰</span>年费</span><span class="vl">200元/年</span></div>
+<div class="row"><span class="lb"><span class="ic" style="background:#2E7D32">🏔️</span>景区</span><span class="vl">20家A级景区 · 最高免12次</span></div>
+<div class="row"><span class="lb"><span class="ic" style="background:#7B1FA2">🎭</span>场馆</span><span class="vl">17家休闲场馆</span></div>
+<div class="row"><span class="lb"><span class="ic" style="background:#F5A623">♨️</span>温泉</span><span class="vl">3家温泉 · 免票入场</span></div>
+<div class="row"><span class="lb"><span class="ic" style="background:#D32F2F">🎬</span>影城</span><span class="vl">4家连锁影城 · 免票观影</span></div>
+<div class="row"><span class="lb"><span class="ic" style="background:#1976D2">🏠</span>生活</span><span class="vl">洗车·服饰·茶饮等</span></div>
+<div class="row"><span class="lb"><span class="ic" style="background:#2E7D32">👥</span>团建</span><span class="vl">研学·团建·亲子</span></div>
+</div>
+<div class="sn2">🎯 覆盖吃住行游购娱 · 总价值近20000元 · 仅需200元/年</div></div></section>
 
-  <!-- P4 -->
-  <section class="pg" id="p4">
-    <div class="tt c1"><span>激活惠民卡</span></div>
-    <div class="pi">
-      <div class="card sb bl card-p c1"><div class="hd">📱 线上激活 · 购卡后自动跳转</div>
-        <div class="sr" onclick="showToast('👉 前往「我的惠民卡」激活')"><span class="sn" style="background:#2E7D32">1</span><span class="tx">购卡成功 → 自动跳转 <span class="hl">「我的」→「我的惠民卡」</span></span></div>
-        <div class="sr" onclick="showToast('📝 填写真实姓名与身份证')"><span class="sn" style="background:#1976D2">2</span><span class="tx">进入激活界面 → 填写 <span class="hl">真实姓名</span> 与 <span class="hl">身份证号码</span></span></div>
-        <div class="sr" onclick="showToast('✅ 提交即完成激活')"><span class="sn" style="background:#F5A623">3</span><span class="tx">确认无误 → 提交 → 显示 <span class="hl">「已激活」</span></span></div></div>
-      <div class="card sb pu card-p c2"><div class="hd">📇 纸质卡激活 · 两种方式</div>
-        <div class="sr" onclick="showToast('🔑 查看卡片背面的激活码')"><span class="sn" style="background:#2E7D32">1</span><span class="tx">卡片二维码下方数字即为 <span class="hl">激活码</span></span></div>
-        <div class="sr" onclick="showToast('✍️ 手动或相机自动识别')"><span class="sn" style="background:#1976D2">2</span><span class="tx"><span class="hl">手动输入</span> 激活码 · 或放入相机 <span class="hl">自动识别</span> 二维码</span></div>
-        <div class="sr" onclick="showToast('📋 填写信息提交完成')"><span class="sn" style="background:#F5A623">3</span><span class="tx">填写 <span class="hl">激活码</span>、<span class="hl">使用者姓名</span> → 提交完成</span></div></div></div></section>
+<!-- P4 -->
+<section class="pg" id="p4"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>激活惠民卡</span></div>
+<div class="pi">
+<div class="card sb bl card-p c1"><div class="hd">📱 线上激活 · 购卡后自动跳转</div>
+<div class="sr" onclick="showToast('👉 前往「我的惠民卡」激活')"><span class="sn" style="background:#2E7D32">1</span><span class="tx">购卡成功 → 自动跳转 <span class="hl">「我的」→「我的惠民卡」</span></span></div>
+<div class="sr" onclick="showToast('📝 填写真实姓名与身份证')"><span class="sn" style="background:#1976D2">2</span><span class="tx">进入激活界面 → 填写 <span class="hl">真实姓名</span> 与 <span class="hl">身份证号码</span></span></div>
+<div class="sr" onclick="showToast('✅ 提交即完成激活')"><span class="sn" style="background:#F5A623">3</span><span class="tx">确认无误 → 提交 → 显示 <span class="hl">「已激活」</span></span></div></div>
+<div class="card sb pu card-p c2"><div class="hd">📇 纸质卡激活 · 两种方式</div>
+<div class="sr" onclick="showToast('🔑 查看卡片背面的激活码')"><span class="sn" style="background:#2E7D32">1</span><span class="tx">卡片二维码下方数字即为 <span class="hl">激活码</span></span></div>
+<div class="sr" onclick="showToast('✍️ 手动或相机自动识别')"><span class="sn" style="background:#1976D2">2</span><span class="tx"><span class="hl">手动输入</span> 激活码 · 或放入相机 <span class="hl">自动识别</span> 二维码</span></div>
+<div class="sr" onclick="showToast('📋 填写信息提交完成')"><span class="sn" style="background:#F5A623">3</span><span class="tx">填写 <span class="hl">激活码</span>、<span class="hl">使用者姓名</span> → 提交完成</span></div><div class="card sb bl card-p c3"><div class="hd">🎉 激活后 · 尊享权益</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2%">
+<div style="background:var(--g3);border-radius:10px;padding:4% 5%;text-align:center"><div style="font-size:22px">🏔️</div><div style="font-size:13px;font-weight:800;color:var(--g);margin-top:2px">20</div><div style="font-size:8px;color:var(--t3)">家景区畅玩</div></div>
+<div style="background:var(--g3);border-radius:10px;padding:4% 5%;text-align:center"><div style="font-size:22px">🎭</div><div style="font-size:13px;font-weight:800;color:var(--g);margin-top:2px">17</div><div style="font-size:8px;color:var(--t3)">家场馆任选</div></div>
+<div style="background:var(--a2);border-radius:10px;padding:4% 5%;text-align:center"><div style="font-size:22px">♨️</div><div style="font-size:13px;font-weight:800;color:var(--a);margin-top:2px">3</div><div style="font-size:8px;color:var(--t3)">家温泉度假</div></div>
+<div style="background:var(--a2);border-radius:10px;padding:4% 5%;text-align:center"><div style="font-size:22px">🎬</div><div style="font-size:13px;font-weight:800;color:var(--a);margin-top:2px">4</div><div style="font-size:8px;color:var(--t3)">家影城观影</div></div>
+</div>
+<div class="sn2" style="margin-top:2%">💡 激活即生效 · 365天有效期 · 随时核销随时玩</div></div>
+</div></div></section>
 
-  <!-- P5 -->
-  <section class="pg" id="p5">
-    <div class="tt c1"><span>核销方式 · 扫码入园</span></div>
-    <div class="pi">
-      <div class="sc m1 c1"><div class="sh"><span class="si" style="background:linear-gradient(135deg,#2E7D32,#4CAF50)">🛂</span>方式一 · 机器核销</div>
-        <div class="r"><span class="d"></span>前往景区/场馆 → 打开小程序</div>
-        <div class="r"><span class="d"></span>进入 <span class="hi">「我的」</span> → <span class="hi">「扫码入园」</span></div>
-        <div class="r"><span class="d"></span>出示二维码 → <span class="hi">机器上核销</span> → 闸机秒通行</div></div>
-      <div class="sc m2 c2"><div class="sh"><span class="si" style="background:linear-gradient(135deg,#1976D2,#42A5F5)">👤</span>方式二 · 人工核销</div>
-        <div class="r"><span class="d"></span>前往景区/场馆 → 打开小程序</div>
-        <div class="r"><span class="d"></span>进入 <span class="hi">「我的」</span> → <span class="hi">「扫码入园」</span></div>
-        <div class="r"><span class="d"></span>出示二维码 → <span class="hi">手机上核销</span> → 忘带证件也能用</div></div>
-      <div class="sep c3" onclick="toggleMerchant()"><span id="merchantToggle">⬇ 商户端核示意</span></div>
-      <div class="mock c3" id="merchantMock"><div class="mt"><span class="tl">商家列表</span><span class="st"><span>🔋 100%</span><span>16:53</span></span></div>
-        <div class="sh"><span class="sq">🏪</span><h4>核销商户区</h4></div>
-        <div class="li"><div class="lr"><span class="nm">内蒙古智慧文旅有限公司</span></div><div class="btns"><button class="b sq" onclick="scanVerify(this)">📷 扫码核销</button><button class="b ma" onclick="showToast('🔢 请输入顾客二维码下方数字')">🔢 人工核销</button></div></div>
-        <div class="li"><div class="lr"><span class="nm">青城驿站文旅服务中心</span></div><div class="btns"><button class="b sq" onclick="scanVerify(this)">📷 扫码核销</button><button class="b ma" onclick="showToast('🔢 请输入顾客二维码下方数字')">🔢 人工核销</button></div></div>
-        <div class="inf"><div class="row"><span>优惠券详情</span><span class="ph">青城驿站200元储值卡（代金券）</span></div>
-          <div class="row"><span>使用时间</span><span>2023-02-22 16:36:57</span></div>
-          <div class="row"><span>使用人电话</span><span class="ph">18504711584</span></div>
-          <div class="tags"><span onclick="showToast('📋 查看核销历史记录')">核销记录</span><span onclick="showToast('🏷️ 景区类优惠券')">景区</span><span onclick="showToast('🎫 查看优惠券详情')">优惠券</span></div></div></div></div></section>
+<!-- P5 -->
+<section class="pg" id="p5"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>核销方式 · 扫码入园</span></div>
+<div class="pi">
+<div class="sc m1 c1"><div class="sh"><span class="si" style="background:linear-gradient(135deg,#2E7D32,#4CAF50)">🛂</span>方式一 · 机器核销</div>
+<div class="r"><span class="d"></span>前往景区/场馆 → 打开小程序</div>
+<div class="r"><span class="d"></span>进入 <span class="hi">「我的」</span> → <span class="hi">「扫码入园」</span></div>
+<div class="r"><span class="d"></span>出示二维码 → <span class="hi">机器上核销</span> → 闸机秒通行</div></div>
+<div class="sc m2 c2"><div class="sh"><span class="si" style="background:linear-gradient(135deg,#1976D2,#42A5F5)">👤</span>方式二 · 人工核销</div>
+<div class="r"><span class="d"></span>前往景区/场馆 → 打开小程序</div>
+<div class="r"><span class="d"></span>进入 <span class="hi">「我的」</span> → <span class="hi">「扫码入园」</span></div>
+<div class="r"><span class="d"></span>出示二维码 → <span class="hi">手机上核销</span> → 忘带证件也能用</div></div>
+<div class="sep c3" onclick="toggleMerchant()"><span id="merchantToggle">⬇ 商户端核示意</span></div>
+<div class="mock c3" id="merchantMock"><div class="mt"><span class="tl">商家列表</span><span class="st"><span>🔋 100%</span><span>16:53</span></span></div>
+<div class="sh"><span class="sq">🏪</span><h4>核销商户区</h4></div>
+<div class="li"><div class="lr"><span class="nm">内蒙古智慧文旅有限公司</span></div><div class="btns"><button class="b sq" onclick="scanVerify(this)">📷 扫码核销</button><button class="b ma" onclick="showToast('🔢 请输入顾客二维码下方数字')">🔢 人工核销</button></div></div>
+<div class="li"><div class="lr"><span class="nm">青城驿站文旅服务中心</span></div><div class="btns"><button class="b sq" onclick="scanVerify(this)">📷 扫码核销</button><button class="b ma" onclick="showToast('🔢 请输入顾客二维码下方数字')">🔢 人工核销</button></div></div>
+<div class="inf"><div class="row"><span>优惠券详情</span><span class="ph">青城驿站200元储值卡（代金券）</span></div>
+<div class="row"><span>使用时间</span><span>2023-02-22 16:36:57</span></div>
+<div class="row"><span>使用人电话</span><span class="ph">18504711584</span></div>
+<div class="tags"><span onclick="showToast('📋 查看核销历史记录')">核销记录</span><span onclick="showToast('🏷️ 景区类优惠券')">景区</span><span onclick="showToast('🎫 查看优惠券详情')">优惠券</span></div></div></div></div></section>
 
-  <!-- P7 -->
-  <section class="pg" id="p7">
-    <div class="tt c1"><span>核心权益 · 影城温泉景区</span></div>
-    <div class="pi">
-      <div class="cw c1"><div class="cc"><div class="ch"><span class="ci" style="background:linear-gradient(135deg,#1976D2,#42A5F5)">🎬</span>连锁影城 · 五店通用</div>
-        <div class="li" onclick="showToast('🎬 奥际影城 · 杜比全景声 · 免票3次')"><div class="ln">奥际影城 <small>杜比全景声</small></div><div class="rp"><div class="ol">原70元</div><div class="nw">免×3</div></div></div></div>
-        <div class="cc"><div class="ch"><span class="ci" style="background:linear-gradient(135deg,var(--g),#2ECC71)">♨️</span>温泉度假 · 三大场地</div>
-          <div class="li" onclick="showToast('♨️ 清溪川水汇 · 市区汗蒸 · 免票2次')"><div class="ln">清溪川水汇 <small>市区汗蒸</small></div><div class="rp"><div class="ol">原39元</div><div class="nw">免×2</div></div></div>
-          <div class="li" onclick="showToast('♨️ 哈素海天鹅堡 · 天然温泉 · 免票3次')"><div class="ln">哈素海天鹅堡温泉 <small>天然温泉</small></div><div class="rp"><div class="ol">原189元</div><div class="nw">免×3</div></div></div></div></div>
-      <div class="sg c2"><div class="it" onclick="showToast('🌺 宇生乐谷丰 · 花海亲子 · 免票2次')"><img src="https://s41.ax1x.com/2026/06/10/pmudBnS.webp" alt=""><div class="ov"><h4>宇生乐谷丰</h4><p>🌺 花海亲子</p><span class="fr">免×2</span></div></div>
-        <div class="it" onclick="showToast('🌾 黄河麦野谷 · 田园观光 · 免票5次')"><img src="https://s41.ax1x.com/2026/06/10/pmudD0g.webp" alt=""><div class="ov"><h4>黄河麦野谷</h4><p>🌾 田园生态</p><span class="fr">免×5</span></div></div>
-        <div class="it" onclick="showToast('🌲 白石生态 · 山林徒步 · 免票12次')"><img src="https://s41.ax1x.com/2026/06/10/pmudwX8.webp" alt=""><div class="ov"><h4>白石生态</h4><p>🌲 山林徒步</p><span class="fr">免×12</span></div></div>
-        <div class="it" onclick="showToast('🏜️ 库布其沙漠 · 响沙奇观 · 免票12次')"><img src="https://s41.ax1x.com/2026/06/10/pmudUpt.webp" alt=""><div class="ov"><h4>库布其沙漠</h4><p>🏜️ 含观光车</p><span class="fr">免×12</span></div></div>
-        <div class="it" onclick="showToast('🏛️ 大召寺 · 藏传佛教圣地 · 免票2次')"><img src="https://s41.ax1x.com/2026/06/10/pmudtfI.webp" alt=""><div class="ov"><h4>大召寺</h4><p>🏛️ 银佛寺</p><span class="fr">免×2</span></div></div>
-        <div class="it" onclick="showToast('🏞️ 老牛湾 · 黄河峡谷 · 免票3次')"><img src="https://s41.ax1x.com/2026/06/10/pmudYtA.webp" alt=""><div class="ov"><h4>老牛湾</h4><p>🏞️ 黄河长城</p><span class="fr">免×3</span></div></div></div>
-      <div class="ex c3">🎉 更多景区同步解锁 · 热门景点最高免票12次</div>
-      <div class="nt c4">⚠️ 影城法定节假日不可用 · 哈素海预计11月开园</div></div></section>
+<!-- P7 -->
+<section class="pg" id="p7"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>核心权益 · 影城温泉景区</span></div>
+<div class="pi">
+<div class="cw c1"><div class="cc"><div class="ch"><span class="ci" style="background:linear-gradient(135deg,#1976D2,#42A5F5)">🎬</span>连锁影城 · 五店通用</div>
+<div class="li" onclick="showToast('🎬 奥际影城 · 杜比全景声 · 免票3次')"><div class="ln">奥际影城 <small>杜比全景声</small></div><div class="rp"><div class="ol">原70元</div><div class="nw">免×3</div></div></div></div>
+<div class="cc"><div class="ch"><span class="ci" style="background:linear-gradient(135deg,var(--g),#2ECC71)">♨️</span>温泉度假 · 三大场地</div>
+<div class="li" onclick="showToast('♨️ 清溪川水汇 · 市区汗蒸 · 免票2次')"><div class="ln">清溪川水汇 <small>市区汗蒸</small></div><div class="rp"><div class="ol">原39元</div><div class="nw">免×2</div></div></div>
+<div class="li" onclick="showToast('♨️ 哈素海天鹅堡 · 天然温泉 · 免票3次')"><div class="ln">哈素海天鹅堡温泉 <small>天然温泉</small></div><div class="rp"><div class="ol">原189元</div><div class="nw">免×3</div></div></div></div></div>
+<div class="sg c2"><div class="it" onclick="showToast('🌺 宇生乐谷丰 · 花海亲子 · 免票2次')"><img src="https://s41.ax1x.com/2026/06/10/pmudBnS.webp" alt=""><div class="ov"><h4>宇生乐谷丰</h4><p>🌺 花海亲子</p><span class="fr">免×2</span></div></div>
+<div class="it" onclick="showToast('🌾 黄河麦野谷 · 田园观光 · 免票5次')"><img src="https://s41.ax1x.com/2026/06/10/pmudD0g.webp" alt=""><div class="ov"><h4>黄河麦野谷</h4><p>🌾 田园生态</p><span class="fr">免×5</span></div></div>
+<div class="it" onclick="showToast('🌲 白石生态 · 山林徒步 · 免票12次')"><img src="https://s41.ax1x.com/2026/06/10/pmudwX8.webp" alt=""><div class="ov"><h4>白石生态</h4><p>🌲 山林徒步</p><span class="fr">免×12</span></div></div>
+<div class="it" onclick="showToast('🏜️ 库布其沙漠 · 响沙奇观 · 免票12次')"><img src="https://s41.ax1x.com/2026/06/10/pmudUpt.webp" alt=""><div class="ov"><h4>库布其沙漠</h4><p>🏜️ 含观光车</p><span class="fr">免×12</span></div></div>
+<div class="it" onclick="showToast('🏛️ 大召寺 · 藏传佛教圣地 · 免票2次')"><img src="https://s41.ax1x.com/2026/06/10/pmudtfI.webp" alt=""><div class="ov"><h4>大召寺</h4><p>🏛️ 银佛寺</p><span class="fr">免×2</span></div></div>
+<div class="it" onclick="showToast('🏞️ 老牛湾 · 黄河峡谷 · 免票3次')"><img src="https://s41.ax1x.com/2026/06/10/pmudYtA.webp" alt=""><div class="ov"><h4>老牛湾</h4><p>🏞️ 黄河长城</p><span class="fr">免×3</span></div></div></div>
+<div class="ex c3">🎉 更多景区同步解锁 · 热门景点最高免票12次</div>
+<div class="nt c4">⚠️ 影城法定节假日不可用 · 哈素海预计11月开园</div></div></section>
 
-  <!-- P8 -->
-  <section class="pg" id="p8">
-    <div class="tt c1"><span>生活 · 团建 · 超高性价比</span></div>
-    <div class="pi">
-      <div class="cl c1"><div class="lh">🏠 生活服务 <span class="bc-tag" onclick="showDetail('life')">更多选择 ›</span><span class="hot">HOT</span></div>
-        <div class="gv"><div class="li" onclick="showToast('🚗 万达信洗车 · 两店通用 · 免票2次')"><span class="nm">万达信洗车服务（两店通）</span><span class="rc"><span class="ol">58元</span><span class="fr">免×2</span></span></div>
-          <div class="li" onclick="showToast('👔 威尔浪优惠券 · 免票2张')"><span class="nm">威尔浪优惠券</span><span class="rc"><span class="ol">150元</span><span class="fr">免×2</span></span></div>
-          <div class="li" onclick="showToast('👗 民族服饰体验馆 · 免票2次')"><span class="nm">民族服饰体验馆</span><span class="rc"><span class="ol">88元</span><span class="fr">免×2</span></span></div>
-          <div class="li" onclick="showToast('🍵 特色茶饮驿站 · 免票3次')"><span class="nm">特色茶饮驿站</span><span class="rc"><span class="ol">36元</span><span class="fr">免×3</span></span></div></div></div>
-      <div class="cl c2"><div class="lh">🎮 休闲娱乐 <span class="bc-tag" onclick="showDetail('play')">更多选择 ›</span></div>
-        <div class="gv"><div class="li" onclick="showToast('🏓 星跃乒乓24h自助球馆 · 免票3次')"><span class="nm">星跃乒乓24h自助球馆</span><span class="rc"><span class="ol">30元</span><span class="fr">免×3</span></span></div>
-          <div class="li" onclick="showToast('🧠 疗愈心理咨询室 · 免票3次')"><span class="nm">疗愈心理咨询室</span><span class="rc"><span class="ol">129元</span><span class="fr">免×3</span></span></div>
-          <div class="li" onclick="showToast('🥽 VR虚拟现实体验馆 · 免票2次')"><span class="nm">VR虚拟现实体验馆</span><span class="rc"><span class="ol">68元</span><span class="fr">免×2</span></span></div>
-          <div class="li" onclick="showToast('🥊 综合格斗健身馆 · 免票2次')"><span class="nm">综合格斗健身馆</span><span class="rc"><span class="ol">58元</span><span class="fr">免×2</span></span></div></div></div>
-      <div class="cl c3"><div class="lh">👥 团建 & 亲子研学 <span class="bc-tag" onclick="showDetail('team')">更多选择 ›</span></div>
-        <div class="gv"><div class="li" onclick="showToast('🌾 三主粮燕麦产业园 · 免票2次')"><span class="nm">三主粮燕麦产业园</span><span class="rc"><span class="ol">120元</span><span class="fr">免×2</span></span></div>
-          <div class="li" onclick="showToast('📚 南村研学实践基地 · 免票3次')"><span class="nm">南村研学实践基地</span><span class="rc"><span class="ol">30元</span><span class="fr">免×3</span></span></div>
-          <div class="li" onclick="showToast('🏛️ 蒙元文化体验中心 · 免票2次')"><span class="nm">蒙元文化体验中心</span><span class="rc"><span class="ol">98元</span><span class="fr">免×2</span></span></div>
-          <div class="li" onclick="showToast('🌱 农耕体验乐园 · 免票3次')"><span class="nm">农耕体验乐园</span><span class="rc"><span class="ol">48元</span><span class="fr">免×3</span></span></div></div></div>
-      <div class="val c4"><div class="vt"><div><div class="cl g1" onclick="showToast('💰 实际花费：200元/年')"><div class="b">200</div><div class="s">元/年</div></div><div class="cp">实际花费</div></div><span class="eq">≈</span><div><div class="cl g2" onclick="showToast('🎁 权益总价值：近20000元')"><div class="b">20000</div><div class="s">权益总价值</div></div><div class="cp">全部权益</div></div></div><div class="d">0.55元/天 <small>· 日均不足一瓶矿泉水</small></div></div>
-      <div class="note2 c5">🔥 前1000名办理赠送草原特产奶食礼包 · 适配全年龄段</div></div></section>
+<!-- P8 -->
+<section class="pg" id="p8"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>生活 · 团建 · 超高性价比</span></div>
+<div class="pi">
+<div class="cl c1"><div class="lh">🏠 生活服务 <span class="bc-tag" onclick="showDetail('life')">更多选择 ›</span><span class="hot">HOT</span></div>
+<div class="gv"><div class="li" onclick="showToast('🚗 万达信洗车 · 两店通用 · 免票2次')"><span class="nm">万达信洗车服务（两店通）</span><span class="rc"><span class="ol">58元</span><span class="fr">免×2</span></span></div>
+<div class="li" onclick="showToast('👔 威尔浪优惠券 · 免票2张')"><span class="nm">威尔浪优惠券</span><span class="rc"><span class="ol">150元</span><span class="fr">免×2</span></span></div>
+<div class="li" onclick="showToast('👗 民族服饰体验馆 · 免票2次')"><span class="nm">民族服饰体验馆</span><span class="rc"><span class="ol">88元</span><span class="fr">免×2</span></span></div>
+<div class="li" onclick="showToast('🍵 特色茶饮驿站 · 免票3次')"><span class="nm">特色茶饮驿站</span><span class="rc"><span class="ol">36元</span><span class="fr">免×3</span></span></div></div></div>
+<div class="cl c2"><div class="lh">🎮 休闲娱乐 <span class="bc-tag" onclick="showDetail('play')">更多选择 ›</span></div>
+<div class="gv"><div class="li" onclick="showToast('🏓 星跃乒乓24h自助球馆 · 免票3次')"><span class="nm">星跃乒乓24h自助球馆</span><span class="rc"><span class="ol">30元</span><span class="fr">免×3</span></span></div>
+<div class="li" onclick="showToast('🧠 疗愈心理咨询室 · 免票3次')"><span class="nm">疗愈心理咨询室</span><span class="rc"><span class="ol">129元</span><span class="fr">免×3</span></span></div>
+<div class="li" onclick="showToast('🥽 VR虚拟现实体验馆 · 免票2次')"><span class="nm">VR虚拟现实体验馆</span><span class="rc"><span class="ol">68元</span><span class="fr">免×2</span></span></div>
+<div class="li" onclick="showToast('🥊 综合格斗健身馆 · 免票2次')"><span class="nm">综合格斗健身馆</span><span class="rc"><span class="ol">58元</span><span class="fr">免×2</span></span></div></div></div>
+<div class="cl c3"><div class="lh">👥 团建 & 亲子研学 <span class="bc-tag" onclick="showDetail('team')">更多选择 ›</span></div>
+<div class="gv"><div class="li" onclick="showToast('🌾 三主粮燕麦产业园 · 免票2次')"><span class="nm">三主粮燕麦产业园</span><span class="rc"><span class="ol">120元</span><span class="fr">免×2</span></span></div>
+<div class="li" onclick="showToast('📚 南村研学实践基地 · 免票3次')"><span class="nm">南村研学实践基地</span><span class="rc"><span class="ol">30元</span><span class="fr">免×3</span></span></div>
+<div class="li" onclick="showToast('🏛️ 蒙元文化体验中心 · 免票2次')"><span class="nm">蒙元文化体验中心</span><span class="rc"><span class="ol">98元</span><span class="fr">免×2</span></span></div>
+<div class="li" onclick="showToast('🌱 农耕体验乐园 · 免票3次')"><span class="nm">农耕体验乐园</span><span class="rc"><span class="ol">48元</span><span class="fr">免×3</span></span></div></div></div>
+<div class="val c4"><div class="vt"><div><div class="cl g1" onclick="showToast('💰 实际花费：200元/年')"><div class="b">200</div><div class="s">元/年</div></div><div class="cp">实际花费</div></div><span class="eq">≈</span><div><div class="cl g2" onclick="showToast('🎁 权益总价值：近20000元')"><div class="b">20000</div><div class="s">权益总价值</div></div><div class="cp">全部权益</div></div></div><div class="d">0.55元/天 <small>· 日均不足一瓶矿泉水</small></div></div>
+<div class="note2 c5">🔥 前1000名办理赠送草原特产奶食礼包 · 适配全年龄段</div></div></section>
 
-  <!-- P9 -->
-  <section class="pg" id="p9">
-    <div class="tt c1"><span>联系我们 · 马上办理</span></div>
-    <div class="pi">
-      <div class="ct c1" onclick="showToast('📞 拨打 400-071-0471')"><div class="ctt">📞 全国24小时服务热线</div><div class="ph"><a href="tel:400-071-0471">400-071-0471</a></div><div class="ctd">全国用户均可拨打 · 专业客服全程解答</div></div>
-      <div class="rw2 c2"><div class="ic" onclick="showToast('📋 内蒙古智慧文旅有限公司发行运营')"><div class="ih">📋 发行运营</div><div class="ib">内蒙古旅游行业协会 监制<br>内蒙古智慧文旅有限公司 运营</div></div>
-        <div class="ic" onclick="showToast('✅ 呼和浩特市政府惠民工程')"><div class="ih">✅ 惠民工程</div><div class="ib">呼和浩特市政府批准<br>四部门联合推动 · 正规品质</div></div></div>
-      <div class="rw2 c3"><div class="ic"><div class="ih">📌 扫码关注</div><div class="qr"><div onclick="event.stopPropagation();showToast('📱 打开微信扫一扫办理')">小程序</div><div onclick="event.stopPropagation();showToast('📱 关注公众号获取最新资讯')">公众号</div></div></div>
-        <div class="ic"><div class="ih">📅 更新时间</div><div class="ib" style="color:var(--g);font-weight:600">2026年3月10日</div><div class="ib" style="margin-top:2px">权益持续扩容中</div></div></div>
-      <div class="bw c4"><button class="btn-p" id="applyBtn2">立即办理 200元/年</button></div>
-      <div class="foot c5"><div class="fd"><div class="c"></div></div><div class="fl"><span>文旅卡</span></div><h5>呼和浩特文旅惠民卡</h5><p class="fln">愿一卡相伴 · 畅游青城四季</p><p class="fi">呼和浩特市政府批准 · 四部门联合推动<br>内蒙古智慧文旅有限公司 发行运营</p><p class="fcp">©2026 呼和浩特文旅惠民卡</p></div></div></section>
+<!-- P9 -->
+<section class="pg" id="p9"><div class="bg-deco"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div></div>
+<div class="tt c1"><span>联系我们 · 马上办理</span></div>
+<div class="pi">
+<div class="ct c1" onclick="showToast('📞 拨打 400-071-0471')"><div class="ctt">📞 全国24小时服务热线</div><div class="ph"><a href="tel:400-071-0471">400-071-0471</a></div><div class="ctd">全国用户均可拨打 · 专业客服全程解答</div></div>
+<div class="rw2 c2"><div class="ic" onclick="showToast('📋 内蒙古智慧文旅有限公司发行运营')"><div class="ih">📋 发行运营</div><div class="ib">内蒙古旅游行业协会 监制<br>内蒙古智慧文旅有限公司 运营</div></div>
+<div class="ic" onclick="showToast('✅ 呼和浩特市政府惠民工程')"><div class="ih">✅ 惠民工程</div><div class="ib">呼和浩特市政府批准<br>四部门联合推动 · 正规品质</div></div></div>
+<div class="rw2 c3"><div class="ic"><div class="ih">📌 扫码关注</div><div class="qr"><div onclick="event.stopPropagation();showToast('📱 打开微信扫一扫办理')">小程序</div><div onclick="event.stopPropagation();showToast('📱 关注公众号获取最新资讯')">公众号</div></div></div>
+<div class="ic"><div class="ih">📅 更新时间</div><div class="ib" style="color:var(--g);font-weight:600">2026年3月10日</div><div class="ib" style="margin-top:2px">权益持续扩容中</div></div></div>
+<div class="bw c4"><button class="btn-p" id="applyBtn2">立即办理 200元/年</button></div>
+<div class="foot c5"><div class="fd"><div class="c"></div></div><div class="fl"><span>文旅卡</span></div><h5>呼和浩特文旅惠民卡</h5><p class="fln">愿一卡相伴 · 畅游青城四季</p><p class="fi">呼和浩特市政府批准 · 四部门联合推动<br>内蒙古智慧文旅有限公司 发行运营</p><p class="fcp">©2026 呼和浩特文旅惠民卡</p></div></div></section>
 
 </div></div>
 
@@ -429,36 +461,36 @@
 <div class="modal" id="lotteryModal"><div class="modal-box"><div style="font-size:36px;margin-bottom:4px">♨️</div><h3 style="color:var(--g);margin-bottom:4px;font-size:16px">🎉 恭喜中奖</h3><p style="font-size:10px;color:var(--t2)">您获得哈素海天鹅堡温泉门票1张<br>凭截图联系客服 400-071-0471 兑换</p><button class="btn-p" id="closeLottery" style="margin-top:5px;height:34px;padding:0 22px;font-size:11px">确认</button></div></div>
 <div class="am" id="applyModal"><div class="am-box"><div class="ac" id="closeApply">✕</div><h3 style="color:var(--g);margin-bottom:2px;font-size:15px">办理文旅惠民卡</h3><p style="font-size:10px;color:var(--t3);margin-bottom:7px">填写信息提交申请</p><div class="fgp"><label>姓名 *</label><input type="text" id="name" placeholder="真实姓名"></div><div class="fgp"><label>手机号 *</label><input type="tel" id="phone" placeholder="手机号码"></div><div class="fgp"><label>身份证号 *</label><input type="text" id="idCard" placeholder="身份证号码"></div><button class="bs" id="submitApply">提交申请</button></div></div>
 <div class="mb" id="musicBtn"><div class="ic">🎵</div></div>
-<audio id="audioPlayer" loop preload="none"><source src="./music.mp3" type="audio/mpeg"></audio>
+<audio id="audioPlayer" loop preload="none"><source src="/music.mp3" type="audio/mpeg"></audio>
 
 <script>
-  var p=document.getElementById("pages"),d=document.querySelectorAll(".sn-dot"),n=8,cur=0,lk=0,sy=0,my=0,statsStarted=false;
-  function ub(){document.getElementById("pbar").style.width=((cur+1)/n*100)+"%"}
-  function go(i){if(lk||i===cur)return;lk=1;cur=i;p.style.transform="translateY(-"+(cur*100)+"vh)";for(var j=0;j<d.length;j++)d[j].classList.toggle("a",j===cur);ub();if(cur===1&&!statsStarted){statsStarted=true;startCountUp()}setTimeout(function(){lk=0},550)}ub();
-  document.querySelector(".wrap").addEventListener("touchstart",function(e){if(!lk){sy=e.touches[0].clientY;my=sy}});
-  document.querySelector(".wrap").addEventListener("touchmove",function(e){if(!lk){e.preventDefault();my=e.touches[0].clientY}},{passive:false});
-  document.querySelector(".wrap").addEventListener("touchend",function(){if(lk)return;var d=sy-my;if(d>35&&cur<n-1)go(cur+1);else if(d<-35&&cur>0)go(cur-1)});
-  for(var j=0;j<d.length;j++)d[j].addEventListener("click",function(){go(+this.dataset.i)});
-  document.addEventListener("keydown",function(e){if(lk)return;if((e.key==="ArrowDown"||e.key===" ")&&cur<n-1)go(cur+1);if(e.key==="ArrowUp"&&cur>0)go(cur-1)});
-  var wt;document.addEventListener("wheel",function(e){if(lk)return;clearTimeout(wt);wt=setTimeout(function(){if(e.deltaY>0&&cur<n-1)go(cur+1);else if(e.deltaY<0&&cur>0)go(cur-1)},80)},{passive:1});
-  var ti;function showToast(t){var e=document.getElementById("toast");e.textContent=t;e.classList.add("s");clearTimeout(ti);ti=setTimeout(function(){e.classList.remove("s")},1800)}
-  function sparkle(el){el.style.animation="bounce .4s";setTimeout(function(){el.style.animation=""},500)}
-  function scanVerify(btn){btn.textContent="✅ 已核销";btn.className="b done";showToast("📷 扫码成功 · 核销完成 ✅");setTimeout(function(){btn.textContent="📷 扫码核销";btn.className="b sq"},2500)}
-  function startCountUp(){var items=document.querySelectorAll("#p2 .it .n");items.forEach(function(el){var target=parseInt(el.dataset.target)||0;var u=el.querySelector(".u");var uText=u?u.textContent:"";var current=0;el.innerHTML='0<span class="u">'+uText+'</span>';var iv=setInterval(function(){current+=Math.ceil(target/25);if(current>=target){current=target;clearInterval(iv)}el.innerHTML=current+'<span class="u">'+uText+'</span>'},30)})}
-  function toggleMerchant(){var e=document.getElementById("merchantMock"),t=document.getElementById("merchantToggle");e.classList.toggle("collapsed");t.textContent=e.classList.contains("collapsed")?"▶ 展开商户端核示意":"⬇ 收起商户端核示意"}
-  function showDetail(type){var m=document.getElementById("detailModal"),t=document.getElementById("dmTitle"),b=document.getElementById("dmBody");var data={life:{title:"🏠 生活服务 · 全部权益",items:[["万达借洗车服务（两店通用）","58元","免×2"],["威尔浪优惠券","150元","免×2张"],["宝迪民族服饰","100元","免×3张"],["阿派娜打折卡（4.5折,限购5件）","4.5折","限5件"]],tip:"更多生活服务权益持续更新中"},play:{title:"🎮 休闲娱乐 · 全部权益（17项）",items:[["星跃乒乓24h自助球馆","30元","免×3"],["疗愈心理咨询室","128元","免×3"],["影视屋（押金100元,上门安装）","299元","免×1"],["幻影星空VR主题乐园","38元","免×2"],["海伦钢琴教室（需提前预约）","180元","免×2"],["有点意戏儿童戏剧工厂（提前预约）","98元","免×2"],["动立篮球（周六日不可用）","30元","免×2"],["零食大作战（一次10个币）","10元","免×2"],["战象综合格斗俱乐部（40分钟/次）","100元","免×2"],["威禾域运动工厂（1小时）","89元","免×2"],["维拓猪青少儿体能","150元","免×3"],["乐享时空","58元","免×2"],["七舰队网咖（九店通用）","2h门市价","免×2"],["云都台球（2小时）","72元","免×2"],["阳光熊健身馆","58元","免×1"],["悠季瑜伽（四店通用）","99元","免×2"],["创客茶吧","38元","免×3"]],tip:"部分项目需提前预约或有限制条件，具体以小程序为准"},team:{title:"👥 团建 & 亲子研学 · 全部权益",items:[["三主粮燕麦产业园（10人成团需预约）","120元","免×2"],["南村研学实践基地","30元","免×3"],["重走长征路","88元","免×1"],["栖迟茶博物馆【茶研学】","158元","免×1"],["钱币拓印研学","49元","免×1"],["恩格贝研学","30元","免×1"]],tip:"团建类多数需提前预约，建议提前3天联系商家"}};var d=data[type];if(!d)return;t.textContent=d.title;var html='';d.items.forEach(function(item){html+='<div class="dm-item"><div class="dmn">'+item[0]+'</div><div class="dmr"><div class="dol">原'+item[1]+'</div><div class="dnw">'+item[2]+'</div></div></div>'});if(d.tip)html+='<div class="dm-tip">💡 '+d.tip+'</div>';b.innerHTML=html;m.classList.add("s")}
-  function closeDetail(){document.getElementById("detailModal").classList.remove("s")}
-  document.getElementById("detailModal")&&document.getElementById("detailModal").addEventListener("click",function(e){if(e.target===e.currentTarget)closeDetail()});
-  document.getElementById("closeLottery")&&document.getElementById("closeLottery").addEventListener("click",function(){document.getElementById("lotteryModal").classList.remove("s")});
-  document.getElementById("lotteryModal")&&document.getElementById("lotteryModal").addEventListener("click",function(e){if(e.target===e.currentTarget)e.target.classList.remove("s")});
-  function oa(){document.getElementById("applyModal").classList.add("s")}
-  document.getElementById("applyBtn")&&document.getElementById("applyBtn").addEventListener("click",oa);
-  document.getElementById("applyBtn2")&&document.getElementById("applyBtn2").addEventListener("click",oa);
-  document.getElementById("closeApply")&&document.getElementById("closeApply").addEventListener("click",function(){document.getElementById("applyModal").classList.remove("s")});
-  document.getElementById("applyModal")&&document.getElementById("applyModal").addEventListener("click",function(e){if(e.target===e.currentTarget)e.target.classList.remove("s")});
-  document.getElementById("submitApply")&&document.getElementById("submitApply").addEventListener("click",function(){var n=document.getElementById("name").value.trim(),p=document.getElementById("phone").value.trim(),i=document.getElementById("idCard").value.trim();if(!n||!p||!i)return showToast("请填完所有必填项！");showToast("提交成功！24h内联系您");document.getElementById("applyModal").classList.remove("s")});
-  var ap=document.getElementById("audioPlayer"),mb=document.getElementById("musicBtn"),mm=0;
-  mb&&mb.addEventListener("click",function(){mm?(ap.pause(),mb.classList.remove("p")):(ap.play()["catch"](function(){}),mb.classList.add("p"));mm=!mm});
+var p=document.getElementById("pages"),d=document.querySelectorAll(".sn-dot"),n=8,cur=0,lk=0,sy=0,my=0,statsStarted=false;
+function ub(){document.getElementById("pbar").style.width=((cur+1)/n*100)+"%"}
+function go(i){if(lk||i===cur)return;lk=1;cur=i;p.style.transform="translateY(-"+(cur*100)+"vh)";for(var j=0;j<d.length;j++)d[j].classList.toggle("a",j===cur);ub();if(cur===1&&!statsStarted){statsStarted=true;startCountUp()}setTimeout(function(){lk=0},550)}ub();
+document.querySelector(".wrap").addEventListener("touchstart",function(e){if(!lk){sy=e.touches[0].clientY;my=sy}});
+document.querySelector(".wrap").addEventListener("touchmove",function(e){if(!lk){e.preventDefault();my=e.touches[0].clientY}},{passive:false});
+document.querySelector(".wrap").addEventListener("touchend",function(){if(lk)return;var d=sy-my;if(d>35&&cur<n-1)go(cur+1);else if(d<-35&&cur>0)go(cur-1)});
+for(var j=0;j<d.length;j++)d[j].addEventListener("click",function(){go(+this.dataset.i)});
+document.addEventListener("keydown",function(e){if(lk)return;if((e.key==="ArrowDown"||e.key===" ")&&cur<n-1)go(cur+1);if(e.key==="ArrowUp"&&cur>0)go(cur-1)});
+var wt;document.addEventListener("wheel",function(e){if(lk)return;clearTimeout(wt);wt=setTimeout(function(){if(e.deltaY>0&&cur<n-1)go(cur+1);else if(e.deltaY<0&&cur>0)go(cur-1)},80)},{passive:1});
+var ti;function showToast(t){var e=document.getElementById("toast");e.textContent=t;e.classList.add("s");clearTimeout(ti);ti=setTimeout(function(){e.classList.remove("s")},1800)}
+function sparkle(el){el.style.animation="bounce .4s";setTimeout(function(){el.style.animation=""},500)}
+function scanVerify(btn){btn.textContent="✅ 已核销";btn.className="b done";showToast("📷 扫码成功 · 核销完成 ✅");setTimeout(function(){btn.textContent="📷 扫码核销";btn.className="b sq"},2500)}
+function startCountUp(){var items=document.querySelectorAll("#p2 .it .n");items.forEach(function(el){var target=parseInt(el.dataset.target)||0;var u=el.querySelector(".u");var uText=u?u.textContent:"";var current=0;el.innerHTML='0<span class="u">'+uText+'</span>';var iv=setInterval(function(){current+=Math.ceil(target/25);if(current>=target){current=target;clearInterval(iv)}el.innerHTML=current+'<span class="u">'+uText+'</span>'},30)})}
+function toggleMerchant(){var e=document.getElementById("merchantMock"),t=document.getElementById("merchantToggle");e.classList.toggle("collapsed");t.textContent=e.classList.contains("collapsed")?"▶ 展开商户端核示意":"⬇ 收起商户端核示意"}
+function showDetail(type){var m=document.getElementById("detailModal"),t=document.getElementById("dmTitle"),b=document.getElementById("dmBody");var data={life:{title:"🏠 生活服务 · 全部权益",items:[["万达借洗车服务（两店通用）","58元","免×2"],["威尔浪优惠券","150元","免×2张"],["宝迪民族服饰","100元","免×3张"],["阿派娜打折卡（4.5折,限购5件）","4.5折","限5件"]],tip:"更多生活服务权益持续更新中"},play:{title:"🎮 休闲娱乐 · 全部权益（17项）",items:[["星跃乒乓24h自助球馆","30元","免×3"],["疗愈心理咨询室","128元","免×3"],["影视屋（押金100元,上门安装）","299元","免×1"],["幻影星空VR主题乐园","38元","免×2"],["海伦钢琴教室（需提前预约）","180元","免×2"],["有点意戏儿童戏剧工厂（提前预约）","98元","免×2"],["动立篮球（周六日不可用）","30元","免×2"],["零食大作战（一次10个币）","10元","免×2"],["战象综合格斗俱乐部（40分钟/次）","100元","免×2"],["威禾域运动工厂（1小时）","89元","免×2"],["维拓猪青少儿体能","150元","免×3"],["乐享时空","58元","免×2"],["七舰队网咖（九店通用）","2h门市价","免×2"],["云都台球（2小时）","72元","免×2"],["阳光熊健身馆","58元","免×1"],["悠季瑜伽（四店通用）","99元","免×2"],["创客茶吧","38元","免×3"]],tip:"部分项目需提前预约或有限制条件，具体以小程序为准"},team:{title:"👥 团建 & 亲子研学 · 全部权益",items:[["三主粮燕麦产业园（10人成团需预约）","120元","免×2"],["南村研学实践基地","30元","免×3"],["重走长征路","88元","免×1"],["栖迟茶博物馆【茶研学】","158元","免×1"],["钱币拓印研学","49元","免×1"],["恩格贝研学","30元","免×1"]],tip:"团建类多数需提前预约，建议提前3天联系商家"}};var d=data[type];if(!d)return;t.textContent=d.title;var html='';d.items.forEach(function(item){html+='<div class="dm-item"><div class="dmn">'+item[0]+'</div><div class="dmr"><div class="dol">原'+item[1]+'</div><div class="dnw">'+item[2]+'</div></div></div>'});if(d.tip)html+='<div class="dm-tip">💡 '+d.tip+'</div>';b.innerHTML=html;m.classList.add("s")}
+function closeDetail(){document.getElementById("detailModal").classList.remove("s")}
+document.getElementById("detailModal")&&document.getElementById("detailModal").addEventListener("click",function(e){if(e.target===e.currentTarget)closeDetail()});
+document.getElementById("closeLottery")&&document.getElementById("closeLottery").addEventListener("click",function(){document.getElementById("lotteryModal").classList.remove("s")});
+document.getElementById("lotteryModal")&&document.getElementById("lotteryModal").addEventListener("click",function(e){if(e.target===e.currentTarget)e.target.classList.remove("s")});
+function oa(){document.getElementById("applyModal").classList.add("s")}
+document.getElementById("applyBtn")&&document.getElementById("applyBtn").addEventListener("click",oa);
+document.getElementById("applyBtn2")&&document.getElementById("applyBtn2").addEventListener("click",oa);
+document.getElementById("closeApply")&&document.getElementById("closeApply").addEventListener("click",function(){document.getElementById("applyModal").classList.remove("s")});
+document.getElementById("applyModal")&&document.getElementById("applyModal").addEventListener("click",function(e){if(e.target===e.currentTarget)e.target.classList.remove("s")});
+document.getElementById("submitApply")&&document.getElementById("submitApply").addEventListener("click",function(){var n=document.getElementById("name").value.trim(),p=document.getElementById("phone").value.trim(),i=document.getElementById("idCard").value.trim();if(!n||!p||!i)return showToast("请填完所有必填项！");showToast("提交成功！24h内联系您");document.getElementById("applyModal").classList.remove("s")});
+var ap=document.getElementById("audioPlayer"),mb=document.getElementById("musicBtn"),mm=0;
+mb&&mb.addEventListener("click",function(){mm?(ap.pause(),mb.classList.remove("p")):(ap.play()["catch"](function(){}),mb.classList.add("p"));mm=!mm});
 </script>
 </body>
 </html>
